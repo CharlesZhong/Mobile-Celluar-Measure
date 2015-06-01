@@ -29,7 +29,7 @@ from ctypes import (c_int, c_uint, create_string_buffer, memmove, c_void_p,
     POINTER)
 
 from webm import _LIBRARY, PIXEL_ALPHA_SZ, PIXEL_SZ
-from http_parser.webm.handlers import BitmapHandler
+from handlers import BitmapHandler
 
 
 
