@@ -8,8 +8,8 @@ import logging
 
 from PIL import  Image
 
-from http_parser.webm import handlers
-from  webm import decode
+from webm import handlers
+from webm import decode
 
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
