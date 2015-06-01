@@ -25,10 +25,9 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 """
 
-from PIL import Image
-from webm import encode
-from webm.handlers import BitmapHandler, WebPHandler
-from webm.tests.common import (IMAGE_WIDTH, IMAGE_HEIGHT, PNG_BITMAP_DATA,
+from http_parser.webm import encode
+from http_parser.webm.handlers import BitmapHandler, WebPHandler
+from http_parser.webm.tests.common import (IMAGE_WIDTH, IMAGE_HEIGHT, PNG_BITMAP_DATA,
     ENCODE_FILENAME)
 
 try:

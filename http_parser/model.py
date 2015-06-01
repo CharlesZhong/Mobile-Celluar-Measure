@@ -59,6 +59,34 @@ class Image_Model(object):
 
     def __repr__(self):
         return "{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}".format(self.real_type, self.md5,
-                                           self.weight, self.height, self.pixel_count,
-                                           self.quality,
-                                           self.compress_md5, self.compress_size)
+                                                       self.weight, self.height, self.pixel_count,
+                                                       self.quality,
+                                                       self.compress_md5, self.compress_size)
+
+
+class IMAGE_OUTPUT_MODEL():
+    def __init__(self, terms):
+        self.requset_time = terms[0]
+        self.response_time = terms[1]
+        self.user_token = terms[2]
+        # self.user_conf = terms[3]
+        self.accept = terms[3]
+        self.accept_encoding = terms[4]
+        self.len_request = terms[5]
+        self.len_request_body = terms[6]
+
+        self.status_code = terms[7]
+        self.content_length = terms[8]
+        self.content_type = terms[9]
+        self.len_repsonse = terms[10]
+        self.len_response_body = terms[11]
+
+        self.real_type = terms[12]
+        self.md5 = terms[13]
+        self.weight = terms[14]
+        self.height = terms[15]
+        self.pixel_count = terms[16]
+        self.quality = terms[17]
+
+        self.compress_md5 = terms[18]
+        self.compress_size = terms[19]

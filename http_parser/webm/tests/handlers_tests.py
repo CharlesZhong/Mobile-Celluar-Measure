@@ -25,10 +25,11 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 """
 
-from webm.handlers import WebPHandler, BitmapHandler
-from webm.tests.common import (IMAGE_WIDTH, IMAGE_HEIGHT, WEBP_IMAGE_DATA,
-    WEBP_IMAGE_FILE)
 import os
+
+from webm.handlers import WebPHandler, BitmapHandler
+from http_parser.webm.tests.common import (IMAGE_WIDTH, IMAGE_HEIGHT, WEBP_IMAGE_DATA,
+    WEBP_IMAGE_FILE)
 
 try:
     import unittest2 as unittest

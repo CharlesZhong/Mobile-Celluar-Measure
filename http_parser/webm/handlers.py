@@ -127,7 +127,7 @@ class WebPHandler(object):
         :type filename: string
         :rtype: WebPHandler
         """
-        from webm import decode
+        from http_parser.webm import decode
 
         data = file(filename, "rb").read()
         width, height = decode.GetInfo(data)

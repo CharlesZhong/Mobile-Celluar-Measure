@@ -27,8 +27,10 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 from ctypes import (c_int, c_float, c_void_p, byref, memmove,
     create_string_buffer)
+
 from webm import _LIBRARY
-from webm.handlers import WebPHandler
+from http_parser.webm.handlers import WebPHandler
+
 
 
 # -----------------------------------------------------------------------------

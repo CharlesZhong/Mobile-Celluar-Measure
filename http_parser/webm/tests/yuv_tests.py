@@ -26,8 +26,9 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 """
 
 from PIL import Image
-from webm import yuv, decode
-from webm.tests.common import WEBP_IMAGE_DATA, DECODE_FILENAME
+
+from http_parser.webm import decode, yuv
+from http_parser.webm.tests.common import WEBP_IMAGE_DATA, DECODE_FILENAME
 
 try:
     import unittest2 as unittest
@@ -44,7 +45,7 @@ class YuvTests(unittest.TestCase):
         """
         Test intialise lookup tables
         """
-        import webm.yuv as yuv
+        import http_parser.webm.yuv as yuv
 
         self.assertEqual(len(yuv.VP8kVToR), 256)
         self.assertEqual(len(yuv.VP8kUToB), 256)

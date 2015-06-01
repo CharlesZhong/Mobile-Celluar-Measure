@@ -25,11 +25,13 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 """
 
-from PIL import Image
 from ctypes import create_string_buffer
-from webm import decode
+
+from PIL import Image
+
 from webm.handlers import BitmapHandler
-from webm.tests.common import (IMAGE_WIDTH, IMAGE_HEIGHT, WEBP_IMAGE_DATA,
+from http_parser.webm import decode
+from http_parser.webm.tests.common import (IMAGE_WIDTH, IMAGE_HEIGHT, WEBP_IMAGE_DATA,
     DECODE_FILENAME)
 
 try:
