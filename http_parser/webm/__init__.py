@@ -41,7 +41,7 @@ if sys.platform == "win32":
     _LIBRARY = "libwebp_a.dll"
 
 elif sys.platform == "linux2":
-    _LIBRARY = "libwebp.so.0"
+    _LIBRARY = "libwebp.so"
 
 elif sys.platform == "darwin":
     _LIBRARY = "libwebp.dylib"

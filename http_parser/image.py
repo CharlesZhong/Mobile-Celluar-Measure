@@ -6,13 +6,16 @@ import os
 import subprocess
 import logging
 
-from PIL import  Image
+from PIL import Image
 
 from webm import handlers
 from webm import decode
+import time
 
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
+
+
 def image_type_detection(body):
     """Reture Real Type of body
     """
@@ -59,19 +62,53 @@ def get_image_info(real_image_type, body):
 
 
 def compress_image_by_webp(body, quality=70):
+    """ Compress image and return runtime
+    """
     try:
         with open("cal_image", 'w') as w:
             w.write(body)
         FNULL = open(os.devnull, 'w')
-        subprocess.call(["cwebp", "-q", quality,"cal_image", "-o", "zip_image.webp"],  stdout=FNULL,
+        start = time.clock()
+        subprocess.call(["cwebp", "-q", str(quality), "cal_image", "-o", "zip_image.webp"], stdout=FNULL,
                         stderr=subprocess.STDOUT)
+        end = time.clock()
         zip_size = os.stat("zip_image.webp").st_size
         md5_code = md5(open("zip_image.webp").read()).hexdigest()
 
+        run_time = end - start
     except Exception as e:
         logging.info("error {} ".format(e))
         zip_size = '-1'
         md5_code = '-'
+        run_time = '-'
+    return md5_code, zip_size, run_time
 
-    return md5_code, zip_size
+def convert_webp_to_png():
+    """
+    convert image by
+    """
+    try:
+        FNULL = open(os.devnull, 'w')
+        start = time.clock()
+        subprocess.call(["dwebp", "zip_image.webp", "-o", "web2png.png"], stdout=FNULL,
+                        stderr=subprocess.STDOUT)
+        end = time.clock()
+        run_time = end - start
+    except Exception as e:
+        run_time = '-'
+    return run_time
 
+def ziprxoy_zip():
+    """
+    convert image by ziproxy
+    """
+    try:
+        FNULL = open(os.devnull, 'w')
+        start = time.clock()
+        subprocess.call("./demo/demo -f cal_image -o ziproxy_image", shell=True, stdout=FNULL,
+                                stderr=subprocess.STDOUT)
+        end = time.clock()
+        run_time = end - start
+    except Exception as e:
+        run_time = '-'
+    return run_time
