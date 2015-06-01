@@ -97,20 +97,20 @@ def stat_non_webp_runtime(image_output_file):
                     image_model = IMAGE_OUTPUT_MODEL(terms)
 
                     try:
-                        cwebp_runtime = int(image_model.cwebp_runtime)
+                        cwebp_runtime = float(image_model.cwebp_runtime)
                     except ValueError as e:
                         # print e
-                        cwebp_runtime = 0
+                        cwebp_runtime = 0.0
                     try:
-                        dwebp_runtime = int(image_model.dwebp_runtime)
+                        dwebp_runtime = float(image_model.dwebp_runtime)
                     except ValueError as e:
                         # print e
-                        dwebp_runtime = 0
+                        dwebp_runtime = 0.0
                     try:
-                        zipproxy_runtime = int(image_model.zipproxy_runtime)
+                        zipproxy_runtime = float(image_model.ziproxy_runtime)
                     except ValueError as e:
                         # print e
-                        zipproxy_runtime = 0
+                        zipproxy_runtime = 0.0
                     real_type_count_statistic[image_model.real_type] += 1
                     cwebp_runtime_statistic[image_model.real_type] += cwebp_runtime
                     dwebp_runtime_statistic[image_model.real_type] += dwebp_runtime
