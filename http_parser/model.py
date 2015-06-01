@@ -90,3 +90,7 @@ class IMAGE_OUTPUT_MODEL():
 
         self.compress_md5 = terms[18]
         self.compress_size = terms[19]
+
+        self.cwebp_runtime = terms[20]
+        self.dwebp_runtime = terms[21]
+        self.ziproxy_runtime = terms[22]
