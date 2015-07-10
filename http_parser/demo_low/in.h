@@ -38,7 +38,7 @@ void error_log_printf(const char *fmt, ...);
 
 void image_init();
 
-extern int getImageQuality (int width, int height,int type);
+extern int getImageQuality (int width, int height);
 extern int getJP2ImageQuality (int width, int height);
 
 const int *getJP2KBitLenYA (int width, int height);

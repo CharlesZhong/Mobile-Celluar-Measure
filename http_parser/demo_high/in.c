@@ -14,10 +14,9 @@ int WeiBoJpgWidth = 440;
 int WeiBoJpgDAR = 1;
 int WeiBoQuality = 75;
 
-int ImageQuality[4] = { 5,5,5,5 };
-int ImageQualityHigh[4] = { 90,90,85,80 };
-int ImageQualityMedian[4] = { 60,55,50,45 };
-int ImageQualityLow[4] = { 30,25,25,20 };
+int ImageQuality[4] = { 90, 90, 85, 80 };
+int ImageQualityHigh[4] = { 10,10,15,10 };
+int ImageQualityLow[4] = { 10, 15, 15, 10 };
 
 
 #ifdef JP2K
@@ -186,19 +185,12 @@ int getJP2ImageQuality (int width, int height)
  * Returns index used to get the values ranging from 0 (smallest images)
  * to 3 (largest images).
  */
-int getImageQuality (int width, int height,int type)
+int getImageQuality (int width, int height)
 {
 	int imgcat;
 	
 	imgcat = getImgSizeCategory (width, height);
-
-	if (type == 1){
-		return (ImageQualityHigh [imgcat]);
-	}else if (type == 2){
-		return (ImageQualityMedian [imgcat]);
-	}else{
-		return (ImageQualityLow[imgcat]);
-	}
+	return (ImageQuality [imgcat]);
 }
 
 void debug_log_printf(const char *fmt, ...)
