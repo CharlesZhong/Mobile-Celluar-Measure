@@ -18,14 +18,14 @@ logger.setLevel(logging.DEBUG)
 def image_pixel_type_detection(width, height):
     if width * height < 5000:
         return 'Tiny'
-    elif 5000 <= width * height < 50000 or (width * height >= 5000 and (width < 150 or height < 150)):
+    elif (5000 <= width * height < 50000) or (width * height >= 5000 and (width <= 150 or height <= 150)):
         return 'Small'
-    elif 50000 <= width * height < 250000 or (width >= 150 and height >= 150):
+    elif (50000 <= width * height < 250000) and (width >= 150 and height >= 150):
         return 'Middle'
     elif width * height >= 250000 and width >= 150 and height >= 150:
         return 'Large'
     else:
-        return 'Unkonw'
+        return 'Unknown'
 
 
 def image_type_detection(body):
@@ -155,13 +155,13 @@ def cal_ssim(body):
         median_ssim = compute_ssim("ssim_ori_image", "ssim_median")
         low_ssim = compute_ssim("ssim_ori_image", "ssim_low")
 
-        if what("ssim_ori_image") == 'png' and high_ssim < 0.1:
-            shutil.copyfile("ssim_ori_image", "save_ori_image")
-            shutil.copyfile("ssim_high", "save_high_image")
-            shutil.copyfile("ssim_median", "save_median_image")
-            shutil.copyfile("ssim_low", "save_low_image")
-            print high_ssim, median_ssim, low_ssim
-            exit()
+        # if what("ssim_ori_image") == 'png' and high_ssim < 0.1:
+        #     shutil.copyfile("ssim_ori_image", "save_ori_image")
+        #     shutil.copyfile("ssim_high", "save_high_image")
+        #     shutil.copyfile("ssim_median", "save_median_image")
+        #     shutil.copyfile("ssim_low", "save_low_image")
+        #     print high_ssim, median_ssim, low_ssim
+        #     exit()
 
     except Exception as e:
         logging.info("error {} ".format(e))

@@ -157,9 +157,10 @@ def statistic_ssim(image_output_file):
 
                     ori_size = int(terms[11])
 
-                    high_ssim = float(terms[-6])
+                    high_ssim =  float(terms[-6])
                     median_ssim = float(terms[-5])
                     low_ssim = float(terms[-4])
+
                     high_size = int(terms[-3])
                     median_size = int(terms[-2])
                     low_size = int(terms[-1])
@@ -167,49 +168,61 @@ def statistic_ssim(image_output_file):
                     pixel_type = image.image_pixel_type_detection(weight, height)
                     real_type = terms[12]
 
-                    count_statistic[pixel_type, real_type] += 1
+                    count_statistic[pixel_type] += 1
 
-                    ori_pixel_statistic[pixel_type, real_type] += weight * height
-                    ori_size_statistic[pixel_type, real_type] += ori_size
-                    compressed_size_statistic[pixel_type, real_type, 'high'] += high_size
-                    compressed_size_statistic[pixel_type, real_type, 'median'] += median_size
-                    compressed_size_statistic[pixel_type, real_type, 'low'] += low_size
+                    ori_pixel_statistic[pixel_type] += weight * height
+                    ori_size_statistic[pixel_type] += ori_size
 
-                    ssim_statistic[pixel_type, real_type, 'high'] += high_ssim
-                    ssim_statistic[pixel_type, real_type, 'median'] += median_ssim
-                    ssim_statistic[pixel_type, real_type, 'low'] += low_ssim
+                    if real_type == 'png' and  high_ssim < 0.1:
+                        compressed_size_statistic[pixel_type, 'high'] += ori_size
+                        compressed_size_statistic[pixel_type, 'median'] += ori_size
+                        compressed_size_statistic[pixel_type, 'low'] += ori_size
+
+                        ssim_statistic[pixel_type, 'high'] += 1
+                        ssim_statistic[pixel_type, 'median'] += 1
+                        ssim_statistic[pixel_type, 'low'] += 1
+                    else:
+
+                        compressed_size_statistic[pixel_type, 'high'] += high_size
+                        compressed_size_statistic[pixel_type, 'median'] += median_size
+                        compressed_size_statistic[pixel_type, 'low'] += low_size
+
+                        ssim_statistic[pixel_type, 'high'] += high_ssim
+                        ssim_statistic[pixel_type, 'median'] += median_ssim
+                        ssim_statistic[pixel_type, 'low'] += low_ssim
 
 
 
 
             except Exception as e:
                 overall_statistic['error'] += 1
-                logging.error("error {} in line {}".format(e, line))
+                # logging.error("error {} in line {}".format(e, line))
 
-    # logging.info("[STAT] overstat is {}".format(overall_statistic))
+    logging.info("[STAT] overstat is {}".format(overall_statistic))
     # logging.info("[STAT] ori_pixel_statistic is {}".format(ori_pixel_statistic))
     # logging.info("[STAT] ori_size_statistic is {}".format(ori_size_statistic))
     # logging.info("[STAT] compressed_size_statistic is {}".format(compressed_size_statistic))
     # logging.info("[STAT] ssim_statistic is {}".format(ssim_statistic))
 
     for pixel_type in ['Tiny', 'Small', 'Middle', 'Large']:
-        for real_type in ['jpeg', 'png', 'gif', 'bmp']:
-            p, r = pixel_type, real_type
-            size = count_statistic[p, r]
-            avg_pixel = ori_pixel_statistic[p, r] / size if size > 0 else '-'
-            avg_size = ori_size_statistic[p, r] / size if size > 0 else '-'
+        # for real_type in ['jpeg', 'png', 'gif', 'bmp']:
+        p = pixel_type
 
-            avg_ssim_high = ssim_statistic[p, r, 'high'] / size if size > 0 else '-'
-            avg_ssim_median = ssim_statistic[p, r, 'median'] / size if size > 0 else '-'
-            avg_ssim_low = ssim_statistic[p, r, 'low'] / size if size > 0 else '-'
+        size = count_statistic[p]
+        avg_pixel = ori_pixel_statistic[p] / size if size > 0 else '-'
+        avg_size = ori_size_statistic[p] / size if size > 0 else '-'
 
-            avg_compressed_high = compressed_size_statistic[p, r, 'high'] / size if size > 0 else '-'
-            avg_compressed_median = compressed_size_statistic[p, r, 'median'] / size if size > 0 else '-'
-            avg_compressed_low = compressed_size_statistic[p, r, 'low'] / size if size > 0 else '-'
 
-            print "{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}".format((p, r),size,avg_pixel,avg_size,avg_ssim_high,avg_ssim_median,avg_ssim_low,avg_compressed_high,avg_compressed_median,avg_compressed_low)
+        avg_ssim_high = ssim_statistic[p, 'high'] / size if size > 0 else '-'
+        avg_ssim_median = ssim_statistic[p, 'median'] / size if size > 0 else '-'
+        avg_ssim_low = ssim_statistic[p, 'low'] / size if size > 0 else '-'
+
+        avg_compressed_high = compressed_size_statistic[p, 'high'] / size if size > 0 else '-'
+        avg_compressed_median = compressed_size_statistic[p, 'median'] / size if size > 0 else '-'
+        avg_compressed_low = compressed_size_statistic[p, 'low'] / size if size > 0 else '-'
+
+        print "{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}".format(p,size,avg_pixel,avg_size,avg_ssim_high,avg_ssim_median,avg_ssim_low,avg_compressed_high,avg_compressed_median,avg_compressed_low)
 
 if __name__ == "__main__":
-    pass
-    statistic_ssim(image_output_file="/Users/Charles/Data/20150528/output/mac_test/20150703004153_image_output.txt")
+    statistic_ssim(image_output_file="/Users/Charles/Desktop/20150710212447_image_output.txt")
     # stat_webp_compress(image_output_file="/Users/Charles/image_output.txt")
