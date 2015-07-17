@@ -31,8 +31,8 @@ def stat_webp_compress(image_output_file):
 
     real_type_count_statistic = defaultdict(int)
     ori_size_statistic = defaultdict(int)
-    compress_size_statistic = defaultdict(int)
-
+    compress_size_statistic_50 = defaultdict(int)
+    compress_size_statistic_70 = defaultdict(int)
     with open(image_output_file) as r_handler:
         for line in r_handler:
             try:
@@ -45,34 +45,33 @@ def stat_webp_compress(image_output_file):
                         continue
 
                     overall_statistic['right'] += 1
-                    image_model = IMAGE_OUTPUT_MODEL(terms)
+                    # image_model = IMAGE_OUTPUT_MODEL(terms)
                     # print image_model.len_response_body
                     # print image_model.compress_size
-                    try:
-                        len_response_body = int(image_model.len_response_body)
-                    except ValueError as e:
-                        # print e
-                        len_response_body = 0
 
-                    try:
-                        compress_size = int(image_model.compress_size)
-                    except ValueError as e:
-                        # print e
-                        compress_size = 0
-                    real_type_count_statistic[image_model.real_type] += 1
-                    ori_size_statistic[image_model.real_type] += len_response_body
+                    len_response_body = int(terms[11])
+                    compress_size_50 = int(terms[-5])
+                    compress_size_70 = int(terms[-2])
 
-                    compress_size_statistic[image_model.real_type] += compress_size
 
+                    real_type_count_statistic[terms[12]] += 1
+                    ori_size_statistic[terms[12]] += len_response_body
+
+                    compress_size_statistic_50[terms[12]] += compress_size_50
+                    compress_size_statistic_70[terms[12]] += compress_size_70
             except Exception as e:
                 overall_statistic['error'] += 1
                 logging.error("error {} in line {}".format(e, line))
 
     logging.info("[STAT] overstat is {}".format(overall_statistic))
     for item in ori_size_statistic:
-        print "{}\t{}\t{}\t{}\t{}".format(item, real_type_count_statistic[item], ori_size_statistic[item],
-                                          compress_size_statistic[item],
-                                          float(compress_size_statistic[item]) / ori_size_statistic[item])
+        print "{}\t{}\t{}\t{}\t{}\t{}\t{}".format(item, real_type_count_statistic[item],
+                                                  ori_size_statistic[item],
+                                          compress_size_statistic_70[item],
+                                          float(compress_size_statistic_70[item]) / ori_size_statistic[item],
+                                                  compress_size_statistic_50[item],
+                                        float(compress_size_statistic_50[item]) / ori_size_statistic[item]
+                                                  )
 
 
 @check_files("image_output_file")
