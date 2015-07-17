@@ -30,6 +30,20 @@ settings = {
         "base_output_file": "ori_output.txt",
         "image_output_file": "image_output.txt",
     },
+    "thtf_test":{
+        "data_dir": "/home/zhongxin/data",
+        "ori_input_file": "test.txt",
+        "output_dir": "/home/zhongxin/data/result/test",
+        "base_output_file": "ori_output.txt",
+        "image_output_file": "image_output.txt",
+    },
+    "thtf_prod":{
+        "data_dir": "/home/zhongxin/data",
+        "ori_input_file": "1211.txt",
+        "output_dir": "/home/zhongxin/data/result/prod",
+        "base_output_file": "ori_output.txt",
+        "image_output_file": "image_output.txt",
+    },
 
 
 
