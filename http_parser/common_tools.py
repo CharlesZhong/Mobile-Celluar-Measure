@@ -7,7 +7,7 @@ import argparse
 Config Config
 """
 parent_parser = argparse.ArgumentParser(add_help=False)
-parent_parser.add_argument('-s', '--setting', action='store', choices=['mac_prod', 'mac_test','linux_prod','linux_test'], dest='config',
+parent_parser.add_argument('-s', '--setting', action='store', dest='config',
                            default="test", required=True, help="设置环境: test,sandbox, prod. 默认:test.")
 
 
