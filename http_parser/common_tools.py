@@ -11,8 +11,8 @@ parent_parser.add_argument('-s', '--setting', action='store', dest='config',
                            default="test", required=True, help="设置环境: test,sandbox, prod. 默认:test.")
 
 
-parent_parser.add_argument('--filter_image', action='store_true', dest='is_filter_image', default=False,
+parent_parser.add_argument('--filter_image', action='store_true', dest='filter_image', default=False,
                            help='is_filter_image')
 
-parent_parser.add_argument('--filter_non_image', action='store_true', dest='is_filter_non_image', default=False,
+parent_parser.add_argument('--filter_non_image', action='store_true', dest='filter_non_image', default=False,
                            help='is_filter_non_image')
