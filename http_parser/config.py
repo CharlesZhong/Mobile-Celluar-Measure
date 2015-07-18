@@ -7,6 +7,7 @@ settings = {
         "output_dir": "/Users/Charles/Data/20150528/output/mac_test",
         "base_output_file": "ori_output.txt",
         "image_output_file": "image_output.txt",
+        "ori_image_output_file": "ori_image_output.txt",
     },
     "mac_prod":{
         "data_dir": "/Users/Charles/Data/20150528/",
@@ -14,6 +15,7 @@ settings = {
         "output_dir": "/Users/Charles/Data/20150528/output/mac_prod",
         "base_output_file": "ori_output.txt",
         "image_output_file": "image_output.txt",
+        "ori_image_output_file": "ori_image_output.txt",
     },
     "linux_test": {
         "data_dir": "/media/sf_baidu_data",
@@ -21,6 +23,7 @@ settings = {
         "output_dir": "/media/sf_baidu_data/linux_test",
         "base_output_file": "ori_output.txt",
         "image_output_file": "image_output.txt",
+        "ori_image_output_file": "ori_image_output.txt",
 
     },
     "linux_prod":{
@@ -29,6 +32,7 @@ settings = {
         "output_dir": "/media/sf_baidu_data/linux_prod",
         "base_output_file": "ori_output.txt",
         "image_output_file": "image_output.txt",
+        "ori_image_output_file": "ori_image_output.txt",
     },
     "thtf_test":{
         "data_dir": "/home/zhongxin/data",
@@ -36,6 +40,7 @@ settings = {
         "output_dir": "/home/zhongxin/data/result/test",
         "base_output_file": "ori_output.txt",
         "image_output_file": "image_output.txt",
+        "ori_image_output_file": "ori_image_output.txt",
     },
     "thtf_prod":{
         "data_dir": "/home/zhongxin/data",
@@ -43,6 +48,7 @@ settings = {
         "output_dir": "/home/zhongxin/data/result/prod",
         "base_output_file": "ori_output.txt",
         "image_output_file": "image_output.txt",
+        "ori_image_output_file": "ori_image_output.txt",
     },
 
 

@@ -52,6 +52,10 @@ def main():
     image_output_file = os.path.join(config['output_dir'],
                                      datetime.now().strftime("%Y%m%d%H%M%S") + "_" + config['image_output_file'])
 
+    ori_image_output_file = os.path.join(config['output_dir'],
+                                     datetime.now().strftime("%Y%m%d%H%M%S") + "_" + config['ori_image_output_file'])
+
+
     if not os.path.isfile(ori_input_file):
         logging.error("input file: %s is not exist!", ori_input_file)
         sys.exit(-1)
@@ -64,7 +68,8 @@ def main():
 
     with open(ori_input_file) as r_handler, \
             open(base_output_file, 'w') as w_base_handler, \
-            open(image_output_file, 'w') as w_image_hanlder:
+            open(image_output_file, 'w') as w_image_hanlder,\
+            open(ori_image_output_file,'w') as w_ori_img_handler:
         for line in r_handler:
             try:
                 if line and line.strip():
@@ -107,7 +112,7 @@ def main():
                     # TODO label image
 
 
-                    if real_image_type == "webp":
+                    if real_image_type and real_image_type not in ['unknown', '-']:
                         md5_code, width, height, image_pix_count = get_image_info(real_image_type, reponse_body)
                         image_model = Image_Model(real_image_type, md5_code, width, height, image_pix_count)
 
@@ -116,12 +121,17 @@ def main():
                                                                                              quality=50)
                         compress_md5_70, compress_size_70, cwebp_run_time_70 = compress_image_by_webp(reponse_body,
                                                                                              quality=70)
+                        compress_md5_75, compress_size_75, cwebp_run_time_75 = compress_image_by_webp(reponse_body,
+                                                                                             quality=75)
 
                         w_image_hanlder.write("{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n".format(base_str, image_model,
                                                                             compress_md5_50,compress_size_50,cwebp_run_time_50,
                                                                             compress_md5_70,compress_size_70,cwebp_run_time_70,
+                                                                            compress_md5_75,compress_size_75,cwebp_run_time_75,
                                                                             ))
-                        # if options.filter_image:
+                        if options.filter_image:
+                            w_ori_img_handler.write(line+"\m")
+
 
 
 
