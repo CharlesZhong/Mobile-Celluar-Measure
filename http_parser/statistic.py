@@ -42,7 +42,7 @@ def stat_webp_compress(image_output_file):
                     overall_statistic['all'] += 1
                     line = line.strip()
                     terms = line.split('\t')
-                    if len(terms) != 26:
+                    if len(terms) != 29:
                         overall_statistic['format_wrong'] += 1
                         continue
 
