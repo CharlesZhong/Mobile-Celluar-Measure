@@ -124,13 +124,13 @@ def main():
                         compress_md5_75, compress_size_75, cwebp_run_time_75 = compress_image_by_webp(reponse_body,
                                                                                              quality=75)
 
-                        w_image_hanlder.write("{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n".format(base_str, image_model,
+                        w_image_hanlder.write("{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n".format(base_str, image_model,
                                                                             compress_md5_50,compress_size_50,cwebp_run_time_50,
                                                                             compress_md5_70,compress_size_70,cwebp_run_time_70,
                                                                             compress_md5_75,compress_size_75,cwebp_run_time_75,
                                                                             ))
                         if options.filter_image:
-                            w_ori_img_handler.write(line+"\m")
+                            w_ori_img_handler.write(line+"\n")
 
 
 
