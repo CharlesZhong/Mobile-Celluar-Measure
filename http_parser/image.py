@@ -3,9 +3,10 @@ from StringIO import StringIO
 from imghdr import what
 from hashlib import md5
 import os
-import subprocess
+from subprocess import *
 import logging
-
+import sys
+import subprocess
 from PIL import Image
 from ssim import compute_ssim
 from webm import handlers
@@ -73,24 +74,25 @@ def get_image_info(real_image_type, body):
     return md5_code, width, height, image_pix_count
 
 
-def compress_image_by_webp(body, quality=70):
+def compress_image_by_webp(body, image_type, quality):
     """ Compress image and return runtime
     """
     try:
-        with open("cal_image", 'w') as w:
+        with open("cal_image."+image_type, 'w') as w:
             w.write(body)
-        FNULL = open(os.devnull, 'w')
+        # FNULL = open(os.devnull, 'w')
         start = time.clock()
-        subprocess.call(["cwebp", "-q", str(quality), "cal_image", "-o", "zip_image.webp"], stdout=FNULL,
-                        stderr=subprocess.STDOUT)
+        rc = Popen("cwebp -q {} cal_image.{} -o zip_image.webp".format(quality,image_type), shell=True, stdout=PIPE, stderr=PIPE, stdin=PIPE)
+        print rc.stdout.readline()
+        print rc.stderr.readline()
         end = time.clock()
         zip_size = os.stat("zip_image.webp").st_size
         md5_code = md5(open("zip_image.webp").read()).hexdigest()
 
         run_time = end - start
     except Exception as e:
-        logging.info("error {} ".format(e))
-        zip_size = '-1'
+        logging.info("error {} type:{}".format(e, image_type))
+        zip_size = '-'
         md5_code = '-'
         run_time = '-'
     return md5_code, zip_size, run_time
