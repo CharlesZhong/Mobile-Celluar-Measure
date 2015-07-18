@@ -112,8 +112,7 @@ def main():
                     # TODO label image
 
 
-                    # if real_image_type and real_image_type not in ['unknown', '-', 'None']:
-                    if real_image_type == "webp":
+                    if real_image_type in ['jpeg', 'png', 'bmp', 'webp']:
                         md5_code, width, height, image_pix_count = get_image_info(real_image_type, reponse_body)
                         image_model = Image_Model(real_image_type, md5_code, width, height, image_pix_count)
 
