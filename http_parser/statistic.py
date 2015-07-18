@@ -76,7 +76,7 @@ def stat_webp_compress(image_output_file):
                                           compress_size_statistic_70[item],
                                           float(compress_size_statistic_70[item]) / ori_size_statistic[item],
                                                   compress_size_statistic_50[item],
-                                        float(compress_size_statistic_50[item]) / ori_size_statistic[item]
+                                        float(compress_size_statistic_50[item]) / ori_size_statistic[item],
                                                   )
 
 
@@ -229,5 +229,5 @@ def statistic_ssim(image_output_file):
         print "{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}".format(p,size,avg_pixel,avg_size,avg_ssim_high,avg_ssim_median,avg_ssim_low,avg_compressed_high,avg_compressed_median,avg_compressed_low)
 
 if __name__ == "__main__":
-    statistic_ssim(image_output_file="/Users/Charles/Desktop/20150710212447_image_output.txt")
-    # stat_webp_compress(image_output_file="/Users/Charles/image_output.txt")
+    # statistic_ssim(image_output_file="/Users/Charles/Desktop/20150710212447_image_output.txt")
+    stat_webp_compress(image_output_file=sys.argv[1])
