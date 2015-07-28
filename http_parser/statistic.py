@@ -152,7 +152,7 @@ def statistic_ssim(image_output_file):
                     overall_statistic['all'] += 1
                     line = line.strip()
                     terms = line.split('\t')
-                    if len(terms) != 26:
+                    if len(terms) != 29:
                         overall_statistic['format_wrong'] += 1
                         continue
 
@@ -229,5 +229,5 @@ def statistic_ssim(image_output_file):
         print "{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}".format(p,size,avg_pixel,avg_size,avg_ssim_high,avg_ssim_median,avg_ssim_low,avg_compressed_high,avg_compressed_median,avg_compressed_low)
 
 if __name__ == "__main__":
-    # statistic_ssim(image_output_file="/Users/Charles/Desktop/20150710212447_image_output.txt")
-    stat_webp_compress(image_output_file=sys.argv[1])
+    statistic_ssim(image_output_file="/Users/Charles/20150719031905_image_output.txt")
+    # stat_webp_compress(image_output_file=sys.argv[1])

@@ -75,10 +75,10 @@ def get_image_info(real_image_type, body):
 
 
 def compress_image_by_webp(body, image_type, quality):
-    """ Compress image and return runtime
+    """ Compress image and return runtime and ssim
     """
     try:
-        with open("cal_image."+image_type, 'w') as w:
+        with open("cal_image", 'w') as w:
             w.write(body)
         # FNULL = open(os.devnull, 'w')
         start = time.clock()
@@ -90,12 +90,14 @@ def compress_image_by_webp(body, image_type, quality):
         md5_code = md5(open("zip_image.webp").read()).hexdigest()
 
         run_time = end - start
+        ssim = compute_ssim("cal_image", "zip_image.webp")
     except Exception as e:
         logging.info("error {} type:{}".format(e, image_type))
         zip_size = '-'
         md5_code = '-'
         run_time = '-'
-    return md5_code, zip_size, run_time
+        ssim = '-'
+    return md5_code, zip_size, run_time, ssim
 
 
 def convert_webp_to_png():
