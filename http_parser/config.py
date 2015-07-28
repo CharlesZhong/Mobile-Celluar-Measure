@@ -44,7 +44,7 @@ settings = {
     },
     "thtf_prod":{
         "data_dir": "/home/zhongxin/data",
-        "ori_input_file": "20150719031905_ori_image_output.txt.txt",
+        "ori_input_file": "20150719031905_ori_image_output.txt",
         "output_dir": "/home/zhongxin/data/result/prod",
         "base_output_file": "ori_output.txt",
         "image_output_file": "image_output.txt",
