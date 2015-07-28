@@ -82,7 +82,7 @@ def compress_image_by_webp(body, image_type, quality):
             w.write(body)
         # FNULL = open(os.devnull, 'w')
         start = time.clock()
-        subprocess.call("cwebp -q {} cal_image.{} -o zip_image.webp".format(quality,image_type), shell=True, stdout=PIPE, stderr=PIPE, stdin=PIPE)
+        subprocess.call("cwebp -q {} cal_image -o zip_image.webp".format(quality), shell=True, stdout=PIPE, stderr=PIPE, stdin=PIPE)
         # print rc.stdout.readline()
         # print rc.stderr.readline()
         end = time.clock()
