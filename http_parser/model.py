@@ -101,10 +101,10 @@ class IMAGE_OUTPUT_MODEL():
         self.runtime_70 = terms[26]
         self.ssim_70 = terms[27]
 
-        self.md5_70 = terms[28]
-        self.length_70 = terms[29]
-        self.runtime_70 = terms[30]
-        self.ssim_70 = terms[31]
+        self.md5_50 = terms[28]
+        self.length_50 = terms[29]
+        self.runtime_50 = terms[30]
+        self.ssim_50 = terms[31]
 
         # self.cwebp_runtime = terms[20]
         # self.dwebp_runtime = terms[21]
