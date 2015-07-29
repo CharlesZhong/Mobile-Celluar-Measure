@@ -92,19 +92,19 @@ class IMAGE_OUTPUT_MODEL():
         self.compress_size = terms[19]
 
         self.md5_75 = terms[20]
-        self.length_75 = int(terms[21])
-        self.runtime_75 = float(terms[22])
-        self.ssim_75 = float(terms[23])
+        self.length_75 = 0 if terms[21] == '-' else int(terms[21])
+        self.runtime_75 = 0 if terms[22] == '-' else float(terms[22])
+        self.ssim_75 = 0 if terms[23] == '-' else float(terms[23])
 
         self.md5_70 = terms[24]
-        self.length_70 = int(terms[25])
-        self.runtime_70 = float(terms[26])
-        self.ssim_70 = float(terms[27])
+        self.length_70 = 0 if terms[25] == '-' else int(terms[25])
+        self.runtime_70 = 0 if terms[26] == '-' else float(terms[26])
+        self.ssim_70 = 0 if terms[27] == '-' else float(terms[27])
 
         self.md5_50 = terms[28]
-        self.length_50 = int(terms[29])
-        self.runtime_50 = float(terms[30])
-        self.ssim_50 = float(terms[31])
+        self.length_50 = 0 if terms[29] == '-' else int(terms[29])
+        self.runtime_50 = 0 if terms[30] == '-' else float(terms[30])
+        self.ssim_50 = 0 if terms[31] == '-' else float(terms[31])
 
         # self.cwebp_runtime = terms[20]
         # self.dwebp_runtime = terms[21]
