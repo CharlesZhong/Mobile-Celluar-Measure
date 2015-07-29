@@ -13,8 +13,10 @@ from webm import handlers
 from webm import decode
 import time
 import shutil
+
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
+
 
 def image_pixel_type_detection(width, height):
     if width * height < 5000:
@@ -80,9 +82,9 @@ def compress_image_by_webp(body, image_type, quality):
     try:
         with open("cal_image", 'w') as w:
             w.write(body)
-        # FNULL = open(os.devnull, 'w')
+        FNULL = open(os.devnull, 'w')
         start = time.clock()
-        subprocess.call("cwebp -q {} cal_image -o zip_image.webp".format(quality), shell=True, stdout=PIPE, stderr=PIPE, stdin=PIPE)
+        subprocess.call(["cwebp", "-q", quality, "cal_image", "-o", "zip_image.webp"], stdout=FNULL, stderr=subprocess.STDOUT)
         # print rc.stdout.readline()
         # print rc.stderr.readline()
         end = time.clock()
@@ -91,6 +93,7 @@ def compress_image_by_webp(body, image_type, quality):
 
         run_time = end - start
         ssim = compute_ssim("cal_image", "zip_image.webp")
+
     except Exception as e:
         logging.info("error {} type:{}".format(e, image_type))
         zip_size = '-'
@@ -142,7 +145,7 @@ def cal_ssim(body):
         with open("ssim_ori_image", 'w') as w:
             w.write(body)
         FNULL = open(os.devnull, 'w')
-        subprocess.call("./demo_high/demo -f ssim_ori_image -o ssim_high", shell=True,stdout=FNULL,
+        subprocess.call("./demo_high/demo -f ssim_ori_image -o ssim_high", shell=True, stdout=FNULL,
                         stderr=subprocess.STDOUT)
 
         subprocess.call("./demo_median/demo -f ssim_ori_image -o ssim_median", shell=True, stdout=FNULL,
@@ -170,8 +173,6 @@ def cal_ssim(body):
     except Exception as e:
         logging.info("error {} ".format(e))
     return high_ssim, median_ssim, low_ssim, high_size, median_size, low_size
-
-
 
 
 if __name__ == "__main__":

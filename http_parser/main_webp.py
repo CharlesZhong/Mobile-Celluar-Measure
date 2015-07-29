@@ -5,7 +5,7 @@ __author__ = 'Charles'
 only compress webp file.
 """
 
-
+import pdb; pdb.set_trace()
 import sys
 import os
 import logging
