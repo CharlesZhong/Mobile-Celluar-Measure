@@ -167,6 +167,9 @@ def statistic_ssim(image_output_file):
 
                     image_model = IMAGE_OUTPUT_MODEL(terms)
 
+                    if image_model.real_type not  in ['jpeg','webp','png']:
+                        continue
+
                     pixel_type = image.image_pixel_type_detection(image_model.weight, image_model.height)
 
                     count_statistic[pixel_type] += 1
@@ -206,23 +209,23 @@ def statistic_ssim(image_output_file):
     # logging.info("[STAT] ssim_statistic is {}".format(ssim_statistic))
 
     for pixel_type in ['Tiny', 'Small', 'Middle', 'Large']:
-        for real_type in ['jpeg', 'png', 'gif', 'bmp']:
-            p = pixel_type
+        # for real_type in ['jpeg', 'png', 'gif', 'bmp']:
+        p = pixel_type
 
-            size = count_statistic[p]
-            avg_pixel = ori_pixel_statistic[p] / size if size > 0 else '-'
-            avg_size = ori_size_statistic[p] / size if size > 0 else '-'
+        size = count_statistic[p]
+        avg_pixel = ori_pixel_statistic[p] / size if size > 0 else '-'
+        avg_size = ori_size_statistic[p] / size if size > 0 else '-'
 
 
-            avg_ssim_75 = ssim75_statistic[real_type,p, '75'] / size if size > 0 else '-'
-            avg_ssim_70 = ssim70_statistic[real_type,p, '70'] / size if size > 0 else '-'
-            avg_ssim_50 = ssim50_statistic[real_type,p, '50'] / size if size > 0 else '-'
+        avg_ssim_75 = ssim75_statistic[p, '75'] / size if size > 0 else '-'
+        avg_ssim_70 = ssim70_statistic[p, '70'] / size if size > 0 else '-'
+        avg_ssim_50 = ssim50_statistic[p, '50'] / size if size > 0 else '-'
 
-            avg_compressed_75 = compressed75_size_statistic[real_type,p, '75'] / size if size > 0 else '-'
-            avg_compressed_70 = compressed70_size_statistic[real_type,p, '70'] / size if size > 0 else '-'
-            avg_compressed_50 = compressed50_size_statistic[real_type,p, '50'] / size if size > 0 else '-'
+        avg_compressed_75 = compressed75_size_statistic[p, '75'] / size if size > 0 else '-'
+        avg_compressed_70 = compressed70_size_statistic[p, '70'] / size if size > 0 else '-'
+        avg_compressed_50 = compressed50_size_statistic[p, '50'] / size if size > 0 else '-'
 
-            print "{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}".format(p,size,avg_pixel,avg_size,avg_ssim_75,avg_ssim_70,avg_ssim_50,avg_compressed_75,avg_compressed_70,avg_compressed_50)
+        print "{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}".format(p,size,avg_pixel,avg_size,avg_ssim_75,avg_ssim_70,avg_ssim_50,avg_compressed_75,avg_compressed_70,avg_compressed_50)
 
 if __name__ == "__main__":
     statistic_ssim(image_output_file=sys.argv[1])
