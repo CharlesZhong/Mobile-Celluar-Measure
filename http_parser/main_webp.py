@@ -14,9 +14,8 @@ from collections import defaultdict
 from common_tools import parent_parser
 from parser import Request_Parser, Response_Parser
 from config import settings
-from image import image_type_detection, compress_image_by_webp, get_image_info, convert_webp_to_png, ziprxoy_zip
+from image import image_type_detection, compress_image_by_webp, get_image_info, convert_webp_to_png, ziprxoy_zip,compute_webp_ssim
 from model import Image_Model
-
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
@@ -30,7 +29,7 @@ logger.addHandler(fileHandler)
 consoleHandler = logging.StreamHandler()
 consoleHandler.setFormatter(logFormatter)
 logger.addHandler(consoleHandler)
-
+from memory_profiler import profile
 
 def main():
     parser = argparse.ArgumentParser(parents=[parent_parser])
@@ -100,7 +99,7 @@ def main():
 
                     # base writer
                     base_str = "{}\t{}\t{}\t{}".format(req_time, rep_time, http_request_model, http_response_model)
-                    w_base_handler.write("{}\n".format(base_str))
+                    # w_base_handler.write("{}\n".format(base_str))
 
                     # reponse_body
                     reponse_body = http_response_parser.get_body()
@@ -115,17 +114,11 @@ def main():
                         md5_code, width, height, image_pix_count = get_image_info(real_image_type, reponse_body)
                         image_model = Image_Model(real_image_type, md5_code, width, height, image_pix_count)
 
-                        compress_md5_50, compress_size_50, cwebp_run_time_50,ssim_50,\
-                        compress_md5_70, compress_size_70, cwebp_run_time_70,ssim_70,\
-                        compress_md5_75, compress_size_75, cwebp_run_time_75,ssim_75, = compress_image_by_webp(reponse_body)
+                        compress_md5_50, compress_size_50, cwebp_run_time_50,\
+                        compress_md5_70, compress_size_70, cwebp_run_time_70,\
+                        compress_md5_75, compress_size_75, cwebp_run_time_75, = compress_image_by_webp(reponse_body)
 
-                        # compress_md5_50, compress_size_50, cwebp_run_time_50,ssim_50 = compress_image_by_webp(reponse_body,real_image_type,
-                        #                                                                      quality=50)
-                        # compress_md5_70, compress_size_70, cwebp_run_time_70,ssim_70 = compress_image_by_webp(reponse_body,real_image_type,
-                        #                                                                      quality=70)
-                        # compress_md5_75, compress_size_75, cwebp_run_time_75,ssim_75 = compress_image_by_webp(reponse_body,real_image_type,
-                        #                                                                      quality=75)
-
+                        ssim_50, ssim_70, ssim_75 = compute_webp_ssim()
                         w_image_hanlder.write("{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n".format(base_str, image_model,
                                                                             compress_md5_50,compress_size_50,cwebp_run_time_50,ssim_50,
                                                                             compress_md5_70,compress_size_70,cwebp_run_time_70,ssim_70,
