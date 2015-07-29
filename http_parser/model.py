@@ -91,20 +91,20 @@ class IMAGE_OUTPUT_MODEL():
         self.compress_md5 = terms[18]
         self.compress_size = terms[19]
 
-        self.md5_75 = terms[20]
-        self.length_75 = 0 if terms[21] == '-' else int(terms[21])
-        self.runtime_75 = 0 if terms[22] == '-' else float(terms[22])
-        self.ssim_75 = 0 if terms[23] == '-' else float(terms[23])
+        self.md5_75 = terms[-12]
+        self.length_75 = 0 if terms[-11] == '-' else int(terms[-11])
+        self.runtime_75 = 0 if terms[-10] == '-' else float(terms[-10])
+        self.ssim_75 = 0 if terms[-9] == '-' else float(terms[-9])
 
-        self.md5_70 = terms[24]
-        self.length_70 = 0 if terms[25] == '-' else int(terms[25])
-        self.runtime_70 = 0 if terms[26] == '-' else float(terms[26])
-        self.ssim_70 = 0 if terms[27] == '-' else float(terms[27])
+        self.md5_70 = terms[-8]
+        self.length_70 = 0 if terms[-7] == '-' else int(terms[-7])
+        self.runtime_70 = 0 if terms[-6] == '-' else float(terms[-6])
+        self.ssim_70 = 0 if terms[-5] == '-' else float(terms[-5])
 
-        self.md5_50 = terms[28]
-        self.length_50 = 0 if terms[29] == '-' else int(terms[29])
-        self.runtime_50 = 0 if terms[30] == '-' else float(terms[30])
-        self.ssim_50 = 0 if terms[31] == '-' else float(terms[31])
+        self.md5_50 = terms[-4]
+        self.length_50 = 0 if terms[-3] == '-' else int(terms[-3])
+        self.runtime_50 = 0 if terms[-2] == '-' else float(terms[-2])
+        self.ssim_50 = 0 if terms[-1] == '-' else float(terms[-1])
 
         # self.cwebp_runtime = terms[20]
         # self.dwebp_runtime = terms[21]
