@@ -115,12 +115,15 @@ def main():
                         md5_code, width, height, image_pix_count = get_image_info(real_image_type, reponse_body)
                         image_model = Image_Model(real_image_type, md5_code, width, height, image_pix_count)
 
+                        compress_md5_50, compress_size_50, cwebp_run_time_50,ssim_50,\
+                        compress_md5_70, compress_size_70, cwebp_run_time_70,ssim_70,\
+                        compress_md5_75, compress_size_75, cwebp_run_time_75,ssim_75, = compress_image_by_webp(reponse_body)
 
-                        compress_md5_50, compress_size_50, cwebp_run_time_50,ssim_50 = compress_image_by_webp(reponse_body,real_image_type,
-                                                                                             quality=50)
-                        compress_md5_70, compress_size_70, cwebp_run_time_70,ssim_70 = compress_image_by_webp(reponse_body,real_image_type,
-                                                                                             quality=70)
-                        compress_md5_75, compress_size_75, cwebp_run_time_75,ssim_75 = compress_image_by_webp(reponse_body,real_image_type,
+                        # compress_md5_50, compress_size_50, cwebp_run_time_50,ssim_50 = compress_image_by_webp(reponse_body,real_image_type,
+                        #                                                                      quality=50)
+                        # compress_md5_70, compress_size_70, cwebp_run_time_70,ssim_70 = compress_image_by_webp(reponse_body,real_image_type,
+                        #                                                                      quality=70)
+                        # compress_md5_75, compress_size_75, cwebp_run_time_75,ssim_75 = compress_image_by_webp(reponse_body,real_image_type,
                                                                                              quality=75)
 
                         w_image_hanlder.write("{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n".format(base_str, image_model,

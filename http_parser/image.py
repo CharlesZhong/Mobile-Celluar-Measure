@@ -13,10 +13,9 @@ from webm import handlers
 from webm import decode
 import time
 import shutil
-
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
-
+from memory_profiler import profile
 
 def image_pixel_type_detection(width, height):
     if width * height < 5000:
@@ -76,7 +75,7 @@ def get_image_info(real_image_type, body):
     return md5_code, width, height, image_pix_count
 
 @profile
-def compress_image_by_webp(body, image_type, quality):
+def compress_image_by_webp(body,):
     """ Compress image and return runtime and ssim
     """
     try:
@@ -84,23 +83,36 @@ def compress_image_by_webp(body, image_type, quality):
             w.write(body)
         FNULL = open(os.devnull, 'w')
         start = time.clock()
-        subprocess.call(["cwebp", "-q", quality, "cal_image", "-o", "zip_image.webp"], stdout=FNULL, stderr=subprocess.STDOUT)
-        # print rc.stdout.readline()
-        # print rc.stderr.readline()
+        subprocess.call(["cwebp", "-q", "50", "cal_image", "-o", "zip_image_50.webp"], stdout=FNULL, stderr=subprocess.STDOUT)
         end = time.clock()
-        zip_size = os.stat("zip_image.webp").st_size
-        md5_code = md5(open("zip_image.webp").read()).hexdigest()
+        zip_size_50 = os.stat("zip_image_50.webp").st_size
+        md5_code_50 = md5(open("zip_image_50.webp").read()).hexdigest()
+        run_time_50 = end - start
+        ssim_50 = compute_ssim("cal_image", "zip_image_50.webp")
 
-        run_time = end - start
-        ssim = compute_ssim("cal_image", "zip_image.webp")
+        start = time.clock()
+        subprocess.call(["cwebp", "-q", "70", "cal_image", "-o", "zip_image_70.webp"], stdout=FNULL, stderr=subprocess.STDOUT)
+        end = time.clock()
+        zip_size_70 = os.stat("zip_image_70.webp").st_size
+        md5_code_70 = md5(open("zip_image_70.webp").read()).hexdigest()
+        run_time_70 = end - start
+        ssim_70 = compute_ssim("cal_image", "zip_image_70.webp")
+
+        start = time.clock()
+        subprocess.call(["cwebp", "-q", "75", "cal_image", "-o", "zip_image_75.webp"], stdout=FNULL, stderr=subprocess.STDOUT)
+        end = time.clock()
+        zip_size_75 = os.stat("zip_image_75.webp").st_size
+        md5_code_75 = md5(open("zip_image_75.webp").read()).hexdigest()
+        run_time_75 = end - start
+        ssim_75 = compute_ssim("cal_image", "zip_image_75.webp")
 
     except Exception as e:
-        logging.info("error {} type:{}".format(e, image_type))
-        zip_size = '-'
-        md5_code = '-'
-        run_time = '-'
-        ssim = '-'
-    return md5_code, zip_size, run_time, ssim
+        logging.info("error {} type:{}".format(e))
+        zip_size_50, md5_code_50, run_time_50, ssim_50 = '-','-','-','-'
+        zip_size_70, md5_code_70, run_time_70, ssim_70 = '-','-','-','-'
+        zip_size_75, md5_code_75, run_time_75, ssim_75 = '-','-','-','-'
+
+    return zip_size_50, md5_code_50, run_time_50, ssim_50,zip_size_70, md5_code_70, run_time_70, ssim_70,zip_size_75, md5_code_75, run_time_75, ssim_75 
 
 
 def convert_webp_to_png():
