@@ -91,6 +91,21 @@ class IMAGE_OUTPUT_MODEL():
         self.compress_md5 = terms[18]
         self.compress_size = terms[19]
 
-        self.cwebp_runtime = terms[20]
-        self.dwebp_runtime = terms[21]
-        self.ziproxy_runtime = terms[22]
+        self.md5_75 = terms[20]
+        self.length_75 = terms[21]
+        self.runtime_75 = terms[22]
+        self.ssim_75 = terms[23]
+
+        self.md5_70 = terms[24]
+        self.length_70 = terms[25]
+        self.runtime_70 = terms[26]
+        self.ssim_70 = terms[27]
+
+        self.md5_70 = terms[28]
+        self.length_70 = terms[29]
+        self.runtime_70 = terms[30]
+        self.ssim_70 = terms[31]
+
+        # self.cwebp_runtime = terms[20]
+        # self.dwebp_runtime = terms[21]
+        # self.ziproxy_runtime = terms[22]
