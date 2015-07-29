@@ -75,7 +75,7 @@ def get_image_info(real_image_type, body):
     md5_code = md5(image_fp.read()).hexdigest()
     return md5_code, width, height, image_pix_count
 
-
+@profile
 def compress_image_by_webp(body, image_type, quality):
     """ Compress image and return runtime and ssim
     """
