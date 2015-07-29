@@ -79,32 +79,32 @@ class IMAGE_OUTPUT_MODEL():
         self.content_length = terms[8]
         self.content_type = terms[9]
         self.len_repsonse = terms[10]
-        self.len_response_body = terms[11]
+        self.len_response_body = int(terms[11])
 
         self.real_type = terms[12]
         self.md5 = terms[13]
-        self.weight = terms[14]
-        self.height = terms[15]
-        self.pixel_count = terms[16]
+        self.weight = int(terms[14])
+        self.height = int(terms[15])
+        self.pixel_count = int(terms[16])
         self.quality = terms[17]
 
         self.compress_md5 = terms[18]
         self.compress_size = terms[19]
 
         self.md5_75 = terms[20]
-        self.length_75 = terms[21]
-        self.runtime_75 = terms[22]
-        self.ssim_75 = terms[23]
+        self.length_75 = int(terms[21])
+        self.runtime_75 = float(terms[22])
+        self.ssim_75 = float(terms[23])
 
         self.md5_70 = terms[24]
-        self.length_70 = terms[25]
-        self.runtime_70 = terms[26]
-        self.ssim_70 = terms[27]
+        self.length_70 = int(terms[25])
+        self.runtime_70 = float(terms[26])
+        self.ssim_70 = float(terms[27])
 
         self.md5_50 = terms[28]
-        self.length_50 = terms[29]
-        self.runtime_50 = terms[30]
-        self.ssim_50 = terms[31]
+        self.length_50 = int(terms[29])
+        self.runtime_50 = float(terms[30])
+        self.ssim_50 = float(terms[31])
 
         # self.cwebp_runtime = terms[20]
         # self.dwebp_runtime = terms[21]
