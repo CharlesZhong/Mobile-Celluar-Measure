@@ -227,6 +227,18 @@ def statistic_ssim(image_output_file):
 
         print "{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}".format(p,size,avg_pixel,avg_size,avg_ssim_75,avg_ssim_70,avg_ssim_50,avg_compressed_75,avg_compressed_70,avg_compressed_50)
 
+@check_files("image_output_file")
+def statistic_size_total(image_output_file):
+    size = defaultdict(int)
+    with open(image_output_file) as r_handler:
+        for line in r_handler:
+            terms = line.split('\t')
+            if   terms[13] in ['jpeg','png','webp']:
+                type = image.image_pixel_type_detection(int(terms[15]),int(terms[16]))
+                size[type] += 1
+    print size
+
+
 if __name__ == "__main__":
     statistic_ssim(image_output_file=sys.argv[1])
     # stat_webp_compress(image_output_file=sys.argv[1])

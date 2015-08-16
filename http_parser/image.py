@@ -77,7 +77,6 @@ def get_image_info(real_image_type, body):
     return md5_code, width, height, image_pix_count
 
 
-@profile
 def compress_image_by_webp(body, ):
     """ Compress image and return runtime
     """
@@ -199,7 +198,8 @@ def cal_ssim(body):
         logging.info("error {} ".format(e))
     return high_ssim, median_ssim, low_ssim, high_size, median_size, low_size
 
-
+def get_ziproxy_total_ssim(reponse_body):
+    pass
 if __name__ == "__main__":
     print compute_ssim("/Users/Charles/Desktop/4.jpg", "/Users/Charles/Desktop/70.webp")
     print compute_ssim("/Users/Charles/Desktop/4.jpg", "/Users/Charles/Desktop/50.webp")

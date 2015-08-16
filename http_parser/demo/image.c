@@ -151,7 +151,7 @@ t_content_type detect_type (char *line, int len)
 /* FIXME: This routine does not support data > 2GB (limited to int) */
 /* FIXME: inbuf AND outb cannot be safely free()'d afterwards!
           when compression fails inbuf==outb, so trying to free() both will fail. */
-int compress_image (char *inbuf, ZP_DATASIZE_TYPE insize, char **outb, ZP_DATASIZE_TYPE *outl, int qf_type){
+int compress_image (char *inbuf, ZP_DATASIZE_TYPE insize, char **outb, ZP_DATASIZE_TYPE *outl, int qf){
 	int st = IMG_RET_ERR_OTHER;
 	int pngstatus = IMG_RET_ERR_OTHER;
 	int jp2status = IMG_RET_ERR_OTHER;
@@ -293,15 +293,17 @@ int compress_image (char *inbuf, ZP_DATASIZE_TYPE insize, char **outb, ZP_DATASI
 	/* is lossy suitable for this picture? */
 #ifdef JP2K
 	if (target_lossy == IMG_JP2K) {
-		jp2_q = getJP2ImageQuality (bmp->width, bmp->height);
-//		jp2_q = qf;
-		if ((jp2_q == 0) || (insize < MIN_INSIZE_TO_JP2K))
+		
+//        jp2_q = getJP2ImageQuality (bmp->width, bmp->height);
+        jp2_q = qf;
+        if ((jp2_q == 0) || (insize < MIN_INSIZE_TO_JP2K))
 			try_lossy = 0;
 	}
 #endif
 	if (target_lossy == IMG_JPEG) {
-		jpeg_q = getImageQuality (bmp->width, bmp->height,qf_type);
-//		jpeg_q = qf;
+//		jpeg_q = getImageQuality (bmp->width, bmp->height);
+        jpeg_q = qf;
+        
 		//jpeg_q = getImageQuality_from_userconfig (bmp->width, bmp->height ,client_hdr->user_config);
 		if ((jpeg_q == 0) || (insize < MIN_INSIZE_TO_JPEG)) {
 			try_lossy = 0;

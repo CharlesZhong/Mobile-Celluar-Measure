@@ -123,7 +123,7 @@ typedef struct {
 //EXTERN raw_image *new_raw_image(int height, int width, int bpp, int flags);
 EXTERN t_content_type detect_type(char *line, int len);
 
-EXTERN int compress_image (char *inbuf, ZP_DATASIZE_TYPE insize, char **outb, ZP_DATASIZE_TYPE *outl,int qf_type);
+EXTERN int compress_image (char *inbuf, ZP_DATASIZE_TYPE insize, char **outb, ZP_DATASIZE_TYPE *outl,int qf);
 
 #endif //SRC_IMAGE_H
 

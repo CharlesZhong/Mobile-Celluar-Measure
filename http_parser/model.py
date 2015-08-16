@@ -91,18 +91,19 @@ class IMAGE_OUTPUT_MODEL():
         self.compress_md5 = terms[18]
         self.compress_size = terms[19]
 
-        self.md5_75 = terms[-12]
-        self.length_75 = 0 if terms[-11] == '-' else int(terms[-11])
+        self.length_75 = 0 if terms[-12] == '-' else int(terms[-12])
+        self.md5_75 = terms[-11]
         self.runtime_75 = 0 if terms[-10] == '-' else float(terms[-10])
         self.ssim_75 = 0 if terms[-9] == '-' else float(terms[-9])
 
-        self.md5_70 = terms[-8]
-        self.length_70 = 0 if terms[-7] == '-' else int(terms[-7])
+        self.length_70 = 0 if terms[-8] == '-' else int(terms[-8])
+        self.md5_70 = terms[-7]
         self.runtime_70 = 0 if terms[-6] == '-' else float(terms[-6])
         self.ssim_70 = 0 if terms[-5] == '-' else float(terms[-5])
 
-        self.md5_50 = terms[-4]
-        self.length_50 = 0 if terms[-3] == '-' else int(terms[-3])
+        self.length_50 = 0 if terms[-4] == '-' else int(terms[-4])
+        self.md5_50 = terms[-3]
+
         self.runtime_50 = 0 if terms[-2] == '-' else float(terms[-2])
         self.ssim_50 = 0 if terms[-1] == '-' else float(terms[-1])
 
