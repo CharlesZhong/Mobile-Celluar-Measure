@@ -117,7 +117,7 @@ def pipeline(overall_statistic, real_image_type_statistic, LEN_ORI_INPUT_TERMS, 
                     # image only png jpeg gif
                     if real_image_type in ['jpeg', 'png', 'bmp', 'gif']:
                         md5_code, width, height, image_pix_count = get_image_info(real_image_type, reponse_body)
-                        image_model_str = Image_Model(real_image_type, md5_code, width, height, image_pix_count)
+                        image_model_str = "{}\t{}\t{}\t{}\t{}".format(real_image_type, md5_code, width, height, image_pix_count)
 
                         ssim_str = get_ziproxy_total_ssim(reponse_body)
                         return "{}\t{}\t{}".format(base_str, image_model_str, ssim_str)

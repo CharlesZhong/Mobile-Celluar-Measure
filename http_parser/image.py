@@ -13,6 +13,7 @@ from webm import handlers
 from webm import decode
 import time
 import shutil
+from collections import defaultdict
 
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
@@ -115,17 +116,19 @@ def compress_image_by_webp(body, ):
         zip_size_75, md5_code_75, run_time_75, = '-', '-', '-'
 
     return zip_size_50, md5_code_50, run_time_50, zip_size_70, md5_code_70, run_time_70, zip_size_75, md5_code_75, run_time_75,
+
+
 @profile
 def compute_webp_ssim():
-
     try:
         ssim_50 = compute_ssim("cal_image", "zip_image_50.webp")
         ssim_70 = compute_ssim("cal_image", "zip_image_70.webp")
         ssim_75 = compute_ssim("cal_image", "zip_image_75.webp")
     except Exception as e:
         logging.info("error {} type:{}".format(e))
-        ssim_50,ssim_70,ssim_75 = '-','-','-'
-    return ssim_50,ssim_70, ssim_75
+        ssim_50, ssim_70, ssim_75 = '-', '-', '-'
+    return ssim_50, ssim_70, ssim_75
+
 
 def convert_webp_to_png():
     """
@@ -198,8 +201,27 @@ def cal_ssim(body):
         logging.info("error {} ".format(e))
     return high_ssim, median_ssim, low_ssim, high_size, median_size, low_size
 
-def get_ziproxy_total_ssim(reponse_body):
-    pass
+
+def get_ziproxy_total_ssim(body):
+    size_dict = defaultdict(int)
+    ssim_dict = defaultdict(float)
+
+    try:
+        with open("ssim_ori_image", 'w') as w:
+            w.write(body)
+
+        FNULL = open(os.devnull, 'w')
+        for qf in range(5, 100, 5):
+            subprocess.call("./demo/demo -f ssim_ori_image -o ssim_{} -q {}".format(str(qf), str(qf)), shell=True,
+                            stdout=FNULL, stderr=subprocess.STDOUT)
+            size_dict[qf] = os.stat("ssim_{}".format(str(qf))).st_size
+            ssim_dict[qf] = compute_ssim("ssim_ori_image", "ssim_{}".format(str(qf)))
+
+        return reduce(lambda x,y: x+"\t"+y ,map(lambda x,y:str(x)+"\t"+str(y),size_dict.values(),ssim_dict.values()))
+    except Exception as e:
+        logging.info("ziprxy error {} ".format(e))
+
+
 if __name__ == "__main__":
     print compute_ssim("/Users/Charles/Desktop/4.jpg", "/Users/Charles/Desktop/70.webp")
     print compute_ssim("/Users/Charles/Desktop/4.jpg", "/Users/Charles/Desktop/50.webp")
