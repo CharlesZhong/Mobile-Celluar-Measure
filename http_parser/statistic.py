@@ -292,4 +292,4 @@ def statistic_ziproxy_all_ssim(image_output_file):
 if __name__ == "__main__":
     # statistic_ssim(image_output_file=sys.argv[1])
     # stat_webp_compress(image_output_file=sys.argv[1])
-    statistic_ziproxy_all_ssim(image_output_file="/Users/Charles/Desktop/test.txt")
+    statistic_ziproxy_all_ssim(image_output_file=sys.argv[1])
