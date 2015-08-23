@@ -239,6 +239,57 @@ def statistic_size_total(image_output_file):
     print size
 
 
+@check_files("image_output_file")
+def statistic_ziproxy_all_ssim(image_output_file):
+
+    # image_type, pixel_type
+
+    count_statistic = defaultdict(int) # count for image_type,pixel_type
+    size_statistic = {}
+    ssim_statistic = {}
+
+    with open(image_output_file) as r_handler:
+        for line in r_handler:
+            if line and line.strip():
+                line = line.strip()
+                terms = line.split('\t')
+
+                pixel_type = image.image_pixel_type_detection(int(terms[14]), int(terms[15]))
+                # image_type = terms[12]
+
+                count_statistic[(pixel_type,)] += 1
+
+                for id, pic_size in zip([idx for idx in range(5,100,5)] ,terms[17::2],):
+                    if (pixel_type,) not in size_statistic:
+                        size_statistic[(pixel_type,)] = defaultdict(int)
+                    size_statistic[(pixel_type,)][id] += int(pic_size)
+
+                size_statistic[(pixel_type,)][100] += float(terms[11])
+
+                for id, pic_ssim in zip([idx for idx in range(5,100,5)] ,terms[18::2],):
+                    if (pixel_type,) not in ssim_statistic:
+                        ssim_statistic[(pixel_type,)] = defaultdict(int)
+                    if float(pic_ssim) <= 0.1:
+                        pic_ssim = 0.95
+                    ssim_statistic[(pixel_type,)][id] += float(pic_ssim)
+
+
+
+
+    # for item, count in count_statistic.iteritems():
+    #     print item,count
+    # for item, count in size_statistic.iteritems():
+    #     print item, count
+    print 'size ratio:'
+    for item, l in size_statistic.iteritems():
+        result =  "\t".join([ str(l[i]/float(l[100])) for i in range(5,100,5)])
+        print "{}\t{}".format(item,result)
+
+    print 'ssim'
+    for item, l in ssim_statistic.iteritems():
+        result =  "\t".join([ str(l[i]/float(count_statistic[item])) for i in range(5,100,5)])
+        print "{}\t{}".format(item,result)
 if __name__ == "__main__":
-    statistic_ssim(image_output_file=sys.argv[1])
+    # statistic_ssim(image_output_file=sys.argv[1])
     # stat_webp_compress(image_output_file=sys.argv[1])
+    statistic_ziproxy_all_ssim(image_output_file="/Users/Charles/Desktop/test.txt")

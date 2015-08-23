@@ -17,7 +17,7 @@ from collections import defaultdict
 
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
-from memory_profiler import profile
+# from memory_profiler import profile
 
 
 def image_pixel_type_detection(width, height):
@@ -118,7 +118,7 @@ def compress_image_by_webp(body, ):
     return zip_size_50, md5_code_50, run_time_50, zip_size_70, md5_code_70, run_time_70, zip_size_75, md5_code_75, run_time_75,
 
 
-@profile
+# @profile
 def compute_webp_ssim():
     try:
         ssim_50 = compute_ssim("cal_image", "zip_image_50.webp")
