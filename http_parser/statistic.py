@@ -249,30 +249,32 @@ def statistic_ziproxy_all_ssim(image_output_file):
     ssim_statistic = {}
 
     with open(image_output_file) as r_handler:
-        for line in r_handler:
-            if line and line.strip():
-                line = line.strip()
-                terms = line.split('\t')
+        try:
+            for line in r_handler:
+                if line and line.strip():
+                    line = line.strip()
+                    terms = line.split('\t')
 
-                pixel_type = image.image_pixel_type_detection(int(terms[14]), int(terms[15]))
-                # image_type = terms[12]
+                    pixel_type = image.image_pixel_type_detection(int(terms[14]), int(terms[15]))
+                    # image_type = terms[12]
 
-                count_statistic[(pixel_type,)] += 1
+                    count_statistic[(pixel_type,)] += 1
 
-                for id, pic_size in zip([idx for idx in range(5,100,5)] ,terms[17::2],):
-                    if (pixel_type,) not in size_statistic:
-                        size_statistic[(pixel_type,)] = defaultdict(int)
-                    size_statistic[(pixel_type,)][id] += int(pic_size)
+                    for id, pic_size in zip([idx for idx in range(5,100,5)] ,terms[17::2],):
+                        if (pixel_type,) not in size_statistic:
+                            size_statistic[(pixel_type,)] = defaultdict(int)
+                        size_statistic[(pixel_type,)][id] += int(pic_size)
 
-                size_statistic[(pixel_type,)][100] += float(terms[11])
+                    size_statistic[(pixel_type,)][100] += float(terms[11])
 
-                for id, pic_ssim in zip([idx for idx in range(5,100,5)] ,terms[18::2],):
-                    if (pixel_type,) not in ssim_statistic:
-                        ssim_statistic[(pixel_type,)] = defaultdict(int)
-                    if float(pic_ssim) <= 0.1:
-                        pic_ssim = 0.95
-                    ssim_statistic[(pixel_type,)][id] += float(pic_ssim)
-
+                    for id, pic_ssim in zip([idx for idx in range(5,100,5)] ,terms[18::2],):
+                        if (pixel_type,) not in ssim_statistic:
+                            ssim_statistic[(pixel_type,)] = defaultdict(int)
+                        if float(pic_ssim) <= 0.1:
+                            pic_ssim = 0.95
+                        ssim_statistic[(pixel_type,)][id] += float(pic_ssim)
+        except Exception as e:
+            print e,line
 
 
 
