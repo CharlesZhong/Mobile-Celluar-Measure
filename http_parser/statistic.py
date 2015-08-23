@@ -270,8 +270,8 @@ def statistic_ziproxy_all_ssim(image_output_file):
                     for id, pic_ssim in zip([idx for idx in range(5,100,5)] ,terms[18::2],):
                         if (pixel_type,) not in ssim_statistic:
                             ssim_statistic[(pixel_type,)] = defaultdict(int)
-                        if float(pic_ssim) <= 0.1:
-                            pic_ssim = 0.95
+                        # if float(pic_ssim) <= 0.1:
+                        #     pic_ssim = 0.95
                         ssim_statistic[(pixel_type,)][id] += float(pic_ssim)
         except Exception as e:
             print e,line
