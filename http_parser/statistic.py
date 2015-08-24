@@ -260,14 +260,16 @@ def statistic_ziproxy_all_ssim(image_output_file):
 
                     count_statistic[(pixel_type,)] += 1
 
-                    for id, pic_size in zip([idx for idx in range(5,100,5)] ,terms[17::2],):
+
+                    pic_idx = [65,35,5,70,40,10,75,45,15,80,50,20,85,55,25,90,60,30,95]
+                    for id, pic_size in zip(pic_idx ,terms[17::2],):
                         if (pixel_type,) not in size_statistic:
                             size_statistic[(pixel_type,)] = defaultdict(int)
                         size_statistic[(pixel_type,)][id] += int(pic_size)
 
                     size_statistic[(pixel_type,)][100] += float(terms[11])
 
-                    for id, pic_ssim in zip([idx for idx in range(5,100,5)] ,terms[18::2],):
+                    for id, pic_ssim in zip(pic_idx ,terms[18::2],):
                         if (pixel_type,) not in ssim_statistic:
                             ssim_statistic[(pixel_type,)] = defaultdict(int)
                         # if float(pic_ssim) <= 0.1:
@@ -291,6 +293,7 @@ def statistic_ziproxy_all_ssim(image_output_file):
     for item, l in ssim_statistic.iteritems():
         result =  "\t".join([ str(l[i]/float(count_statistic[item])) for i in range(5,100,5)])
         print "{}\t{}".format(item,result)
+
 if __name__ == "__main__":
     # statistic_ssim(image_output_file=sys.argv[1])
     # stat_webp_compress(image_output_file=sys.argv[1])
