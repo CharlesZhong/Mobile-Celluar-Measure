@@ -26,10 +26,11 @@ int main(int argc, char **argv)
 				dst = optarg;
 				break;
             case 'q':
-                qf = *optarg;
+                qf = (int*)atoi(optarg) ;
                 break;
 		}
 	}
+	printf("qf: %ld\n", qf);
 	if (!filename)
 		return -1;
 	if (!dst)
