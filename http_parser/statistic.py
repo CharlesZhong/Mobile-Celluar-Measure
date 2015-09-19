@@ -294,7 +294,40 @@ def statistic_ziproxy_all_ssim(image_output_file):
         result =  "\t".join([ str(l[i]/float(count_statistic[item])) for i in range(5,100,5)])
         print "{}\t{}".format(item,result)
 
+
+@check_files("image_output_file")
+def statistic_table3(image_output_file):
+
+    statistic = defaultdict(int)
+
+    type_count_statistic = defaultdict(int) # count for
+    type_traffic_statistic = defaultdict(int)
+
+    with open(image_output_file) as r_handler:
+        try:
+            statistic['total'] += 1
+            for line in r_handler:
+                if line and line.strip():
+                    line = line.strip()
+                    terms = line.split('\t')
+                    if len(terms) != 12:
+                        statistic['format_w'] += 1
+                        continue
+                    type_count_statistic[terms[-3]] += 1
+                    type_traffic_statistic[terms[-3]] += int(terms[-2])
+
+        except Exception as e:
+            statistic['error'] += 1
+
+    print statistic
+    print type_count_statistic
+    print type_traffic_statistic
+
+
+
+
 if __name__ == "__main__":
     # statistic_ssim(image_output_file=sys.argv[1])
     # stat_webp_compress(image_output_file=sys.argv[1])
-    statistic_ziproxy_all_ssim(image_output_file=sys.argv[1])
+    #statistic_ziproxy_all_ssim(image_output_file=sys.argv[1])
+    statistic_table3(image_output_file=sys.argv[1])
