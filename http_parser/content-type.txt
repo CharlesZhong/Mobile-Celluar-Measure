@@ -7,7 +7,7 @@ application/vnd.android.package-archive	octet-stream
 application/zip	zip
 application/json;charset=UTF-8	text
 video/mp4	video
--	-
+-	other
 x-json	text
 text/html;charset=utf-8	text
 application/json	text
@@ -23,7 +23,7 @@ text/html;charset=UTF-8	text
 application/javascript	text
 application/json; charset=UTF-8	text
 application/json; charset=utf-8	text
-audio/mp4	video
+vedio/mp4	video
 application/json;charset=utf-8	text
 text/javascript	text
 text/vnd.wap.wml; charset=utf-8	text
@@ -37,7 +37,7 @@ X-JSON	text
 application/x-msgpack	octet-stream
 text/html; charset=gb2312	text
 application/javascript; charset=utf-8	text
-audio/mpeg	audio
+vedio/mpeg	vedio
 application/x-javascript;charset=utf-8	text
 appplication/octet-stream	octet-stream
 application/octet-stream;charset=gbk	octet-stream
@@ -96,7 +96,7 @@ application/x-shockwave-flash	octet-stream
 application/octet-stream; charset=utf-8	octet-stream
 image	image
 application/x-javascript; charset=UTF-8	text
-audio/amr	audio
+vedio/amr	vedio
 application/json, charset=UTF-8	text
 text/html;charset=UTF8	text
 text/plain; charset=gb2312	text
@@ -113,7 +113,7 @@ text/css; charset=utf-8	text
 image/gif;charset=UTF-8	image
 text/vnd.wap.wml;charset=utf-8	text
 application/xhtml+xml; charset=utf-8	text
-audio/aac	audio
+vedio/aac	vedio
 application/x-png	image
 application/java-archive	text
 text/vnd.wap.wml	text
@@ -148,7 +148,7 @@ suggestion/json; charset=utf-8	text
 application/pdf	octet-stream
 text/css;charset=utf-8	text
 application/x-javascript; charset=uft-8	text
-audio/mp3	audio
+vedio/mp3	vedio
 baiduApp/json; v6.27.2.14; charset=gbk	text
 application/xhtml+xml;charset=UTF-8	text
 text/plain;charset=GBK	text
@@ -182,7 +182,7 @@ applicatoin/json	text
 text/css; charset=gb2312	text
 application/javascript; charset=GB2312	text
 application/atom+xml;charset=UTF-8	text
-audio/mpeg;charset=UTF-8	audio
+vedio/mpeg;charset=UTF-8	vedio
 text/css; charset=GB2312	text
 image/Jpeg	image
 text/cache-manifest	text
@@ -334,7 +334,7 @@ application/javascript, application/javascript	text
 text/plain;charset=GB2312	text
 width="900" height="1350"	other
 width="1285" height="2101"	other
-audio/x-m4a	audio
+vedio/x-m4a	vedio
 text/html; charset=windows-1251	text
 text/html;charset=GB2312	text
 image/vnd.wap.wbmp	image
