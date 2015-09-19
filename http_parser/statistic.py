@@ -295,8 +295,20 @@ def statistic_ziproxy_all_ssim(image_output_file):
         print "{}\t{}".format(item,result)
 
 
-@check_files("image_output_file")
-def statistic_table3(image_output_file):
+@check_files("image_output_file","content_type_file")
+def statistic_table3(image_output_file,content_type_file):
+
+    key_map = {}
+    with open(content_type_file) as rr_handler:
+        for line in rr_handler:
+            line = line.strip()
+            terms = line.split('\t')
+            key_map[terms[0]] = terms[1]
+
+    print len(key_map)
+
+
+
 
     statistic = defaultdict(int)
 
@@ -305,21 +317,35 @@ def statistic_table3(image_output_file):
 
     with open(image_output_file) as r_handler:
         try:
-            statistic['total'] += 1
+
             for line in r_handler:
+                statistic['total'] += 1
                 if line and line.strip():
                     line = line.strip()
                     terms = line.split('\t')
                     if len(terms) != 12:
                         statistic['format_w'] += 1
                         continue
-                    type_count_statistic[terms[-3]] += 1
-                    type_traffic_statistic[terms[-3]] += int(terms[-2])
+
+
+                    if terms[-3] not in key_map:
+                        statistic['miss'] += 1
+                        continue
+                    if key_map[terms[-3]] == 'text' and ("gzip" in terms[4] or "identity" in terms[4] or "deflate" in terms[4]):
+                        type_count_statistic['zip'] += 1
+                        type_traffic_statistic['zip'] += int(terms[-2])
+                    else:
+                        type_count_statistic[key_map[terms[-3]]] += 1
+                        type_traffic_statistic[key_map[terms[-3]]] += int(terms[-2])
+
+
+
 
         except Exception as e:
             statistic['error'] += 1
 
     print statistic
+
     print type_count_statistic
     print type_traffic_statistic
 
@@ -330,4 +356,4 @@ if __name__ == "__main__":
     # statistic_ssim(image_output_file=sys.argv[1])
     # stat_webp_compress(image_output_file=sys.argv[1])
     #statistic_ziproxy_all_ssim(image_output_file=sys.argv[1])
-    statistic_table3(image_output_file=sys.argv[1])
+    statistic_table3(image_output_file=sys.argv[1],content_type_file=sys.argv[2])
