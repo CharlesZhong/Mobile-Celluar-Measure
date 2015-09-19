@@ -1,0 +1,501 @@
+image/jpeg	image
+image/webp	image
+image/png	image
+image/gif	image
+application/octet-stream	octet-stream
+application/vnd.android.package-archive	octet-stream
+application/zip	zip
+application/json;charset=UTF-8	text
+video/mp4	video
+-	-
+x-json	text
+text/html;charset=utf-8	text
+application/json	text
+application/x-javascript	text
+text/html	text
+video/MP2T	video
+text/html; charset=utf-8	text
+text/html; charset=UTF-8	text
+text/plain	text
+text/css	text
+video/mpeg	video
+text/html;charset=UTF-8	text
+application/javascript	text
+application/json; charset=UTF-8	text
+application/json; charset=utf-8	text
+audio/mp4	video
+application/json;charset=utf-8	text
+text/javascript	text
+text/vnd.wap.wml; charset=utf-8	text
+application/x-javascript; charset=utf-8	text
+text/plain; charset=utf-8	text
+image/jpeg;charset=UTF-8	image
+application/octet-stream;charset=UTF-8	octet-stream
+application/binary	octet-stream
+text/plain; charset=UTF-8	text
+X-JSON	text
+application/x-msgpack	octet-stream
+text/html; charset=gb2312	text
+application/javascript; charset=utf-8	text
+audio/mpeg	audio
+application/x-javascript;charset=utf-8	text
+appplication/octet-stream	octet-stream
+application/octet-stream;charset=gbk	octet-stream
+image/jpg	image
+video/x-flv	video
+text/octet	octet-stream
+text/xml;charset=UTF-8	text
+text/javascript;charset=utf-8	text
+application/x-javascript; charset=gb2312	text
+application/x-www-form-urlencoded	other
+application/xhtml+xml; charset=UTF-8	text
+text/javascript;charset=UTF-8	text
+image/jpeg;charset=utf-8	image
+text/html;charset=GBK	text
+application/xml 	text
+image/jpeg; charset=UTF-8	image
+image/JPEG	image
+image/jpeg;charset=GBK	image
+text/xml	text
+text/plain;charset=UTF-8	text
+application/javascript;charset=utf-8	text
+text/html; charset=GB2312	text
+text/json; charset=UTF-8	text
+application/json;charset=GBK	text
+application/x-zip-compressed	zip
+application/xml	text
+text/javascript; charset=UTF-8	text
+image/png;charset=UTF-8	image
+image/PNG	image
+text/json;charset=utf-8	text
+text/html; charset=GBK	text
+application/mtz	other
+"image/jpeg"	image
+application/protobuf	text
+application/json;Charset=utf-8	text
+text/json	text
+text/xml; charset=utf-8	text
+image/jpeg,image/gif	image
+image/bmp	image
+image/png;charset=utf-8	image
+application/vnd.android.package-archive;charset=UTF-8	octet-stream
+text/javascript; charset=utf-8	text
+application/x-octet-stream	octet-stream
+text/javascript; charset=gb18030	text
+text/html; Charset=gb2312	text
+application/x-bmp	image
+application/javascript;charset=UTF-8	text
+text/plain;charset=utf-8	text
+image/x-ms-bmp	image
+image/x-icon	image
+video/mpeg4	video
+text/html;  charset=utf-8	text
+text/html; charset=gbk	text
+text	text
+application/x-shockwave-flash	octet-stream
+application/octet-stream; charset=utf-8	octet-stream
+image	image
+application/x-javascript; charset=UTF-8	text
+audio/amr	audio
+application/json, charset=UTF-8	text
+text/html;charset=UTF8	text
+text/plain; charset=gb2312	text
+application/multipart-formdata	text
+application/json;charset=gbk	text
+application/x-javascript;charset=UTF-8	text
+image/x-png	image
+text/html; charset=ISO-8859-1	text
+application/vnd.android.package-archive; charset=UTF-8	octet-stream
+text/css;charset=UTF-8	text
+text/plain;charset=ISO-8859-1	text
+text/vnd.wap.wml;charset = utf-8	text
+text/css; charset=utf-8	text
+image/gif;charset=UTF-8	image
+text/vnd.wap.wml;charset=utf-8	text
+application/xhtml+xml; charset=utf-8	text
+audio/aac	audio
+application/x-png	image
+application/java-archive	text
+text/vnd.wap.wml	text
+image/jpg;charset=UTF-8	image
+baiduApp/json; v6.27.2.14; charset=UTF-8	text
+application/javascript; charset=UTF-8	text
+application/x-javascript; charset=gbk	text
+application/json-gz	text
+application/x-msdownload	text
+application/font-woff	text
+application/javascript; charset=gb2312	text
+text/html; charset=utf-8;	text
+application/x-rar-compressed	zip
+application/json, text/javascript; charset=UTF-8	text
+text/json;charset: utf-8	text
+application/x-font-ttf	text
+text/html;	text
+image/svg+xml	image
+image/jpeg;charset=GB18030	image
+text/html;charset=utf8	text
+application/txt	text
+text/html; charset=iso-8859-1	text
+application/x-javascript                                        	text
+application/font-sfnt	text
+text/css; charset=UTF-8	text
+image/*	image
+text/plain; charset=GBK	text
+application/xhtml+xml;charset=utf-8	text
+text/html;charset=gbk	text
+text/html; Charset=utf-8	text
+suggestion/json; charset=utf-8	text
+application/pdf	octet-stream
+text/css;charset=utf-8	text
+application/x-javascript; charset=uft-8	text
+audio/mp3	audio
+baiduApp/json; v6.27.2.14; charset=gbk	text
+application/xhtml+xml;charset=UTF-8	text
+text/plain;charset=GBK	text
+text/html; charset=utf8	text
+text/html;charset=utf-8;	text
+application/x-javascript; charset=GBK	text
+text/vnd.wap.wml; charset=UTF-8	text
+multipart/form-data; boundary=--BD**TTS++LIB	text
+text/xml;charset=utf-8	text
+application/x-javascript;charset=GB2312	text
+application/pdf;charset=utf-8	octet-stream
+application/xml;charset=UTF-8	text
+application/x-jpg	image
+application/image	image
+application/octet-stream;	octet-stream
+text/vnd.wap.wml;charset=UTF-8	text
+image/png; charset=UTF-8	image
+text/plain; charset=GB2312	text
+UTF-8;charset=UTF-8	text
+text/xml;charset=GBK	text
+application/thrift	octet-stream
+text/json;charset=UTF-8	text
+text/html; charset=UTF8	text
+application/xml; charset=utf-8	text
+text/Xml;charset=UTF-8	text
+application/x-thrift	octet-stream
+application/octet-stream, text/plain;charset=utf-8	octet-stream
+application/json; charset=utf-8;	text
+text/javascript;charset=GBK	text
+applicatoin/json	text
+text/css; charset=gb2312	text
+application/javascript; charset=GB2312	text
+application/atom+xml;charset=UTF-8	text
+audio/mpeg;charset=UTF-8	audio
+text/css; charset=GB2312	text
+image/Jpeg	image
+text/cache-manifest	text
+application/vnd.ms-powerpoint	octet-stream
+application/x-www-form-urlencoded;charset=UTF-8	text
+text/plain; charset:utf-8	text
+image/vnd.microsoft.icon	image
+image/Jpeg; charset=gb2312	image
+application/x-png;charset=utf-8	text
+text/vnd.wap.wml; Charset=utf-8	text
+video/mpeg4;charset=UTF-8	video
+application/x-gzip;charset=UTF-8	zip
+text/cache-manifest;charset=UTF-8	text
+image/0	image
+image/jpeg; charset=binary	image
+application/x-javascript; charset=GB18030	text
+application/dat+xml	text
+image/jpeg;	image
+application/javascript; charset=gbk	text
+font/ttf	octet-stream
+text/html;Charset=utf-8	text
+image/pjpeg	image
+application/vnd.apple.mpegurl	octet-stream
+application/x-javascript; charset=GB2312	text
+application/x-javascript;charset=gbk	text
+application/octet-stream, application/json;charset=utf-8	octet-stream
+application/javascript;charset=GBK	text
+application/vnd.wap.xhtml+xml;charset=utf-8	text
+application/x-font-woff	text
+text/js; charset=utf-8	text
+application/download	octet-stream
+application/x-javascript; charset=utf-8,gbk	text
+image/png; charset=utf-8	image
+application/x-shockwave-flash;charset=UTF-8	octet-stream
+video/mp4;charset=UTF-8	video
+text/cache-manifest;charset=utf-8	text
+image/png;charset=GBK	image
+text;charset=utf-8	text
+text/html; charset=GB18030	text
+text/x-javascript; charset=UTF-8	text
+application/x-javascript; charset=utf8	text
+Application/json	text
+text/xml; charset=gbk	text
+text/html; Charset=UTF-8	text
+text/txt;charset=GBK	text
+text/vnd.wap.wml ; charset=utf-8	text
+application/vnd.syncml+wbxml	text
+text/html;charset=gb2312	text
+application/msword	octet-stream
+application/x-download;charset=UTF-8	other
+text/css; charset=GBK	text
+text/xml; charset=UTF-8	text
+image/gif;charset=GBK	image
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet	octet-stream
+application/vnd.symbian.install	octet-stream
+2	other
+application/javascript; charset=utf-8,gbk	text
+text/javascript; charset=gb2312	text
+application/javascript;charset=utf8	text
+application/json;charset=UTF-8, application/json;charset=UTF-8	text
+text/html;charset=ISO-8859-1	text
+text/x-cross-domain-policy	text
+application/x-woff	text
+text/html; charset=gb2312                                       	text
+application/javascript; charset=GBK	text
+text/xml;UTF-8; charset=UTF-8	text
+application/json;; charset=utf-8	text
+image/x-jpeg	image
+application/javascript; charset=utf8	text
+image/gif; charset=utf-8	image
+application/amazonui-streaming-json	text
+application/json;; charset=gb2312	text
+application/x-javascript; Charset=GBK	text
+text/json;charset=GBK	text
+image/Gif	image
+text/html; charset=gb2312, text/html	text
+text/html;Charset=utf-8;	text
+application/x-font-ttf;charset=UTF-8	text
+text/html; Charset=GB2312	text
+text/javascript; charset=GB2312	text
+application/octet-stream;charset=ISO-8859-1	octet-stream
+text/javascript; charset=euc-kr	text
+image/gif;charset=utf-8	image
+application/pb	other
+application/x-director	other
+application/x-font-otf	other
+image/png;image/*;charset=UTF-8	image
+image/jpg;	image
+image/x-icon;charset=UTF-8	text
+image/png; charset=gb2312	text
+text/javascript; charset=gbk	text
+application/javascript;charset=ISO-8859-1	text
+application/x-javascript;charset=gb2312	text
+text/plain;charset=gbk	text
+text/html; charset=Utf-8	text
+.data	text
+application/moji+xml	text
+application/json; charset=GB18030	text
+application/jsonp;charset=GBK	text
+application/javascript; charset=windows-1251	text
+font/x-woff	text
+application/json;charset=UTF-8;	text
+textml	text
+text/html;charset:utf-8	text
+width="1280" height="1920"	other
+text/html; charset=us-ascii	text
+application/x-sdch-dictionary	text
+image/Gif; charset=gb2312	image
+application/javascript;charset=gbk	text
+image/gif; charset=UTF-8	image
+image/png;charset=utf8	image
+text/xml; charset=Utf-8	text
+text/javascript;charset=gb2312	text
+application/octet-stream Charset=UTF-8	octet-stream
+text/javascript;charset=GB2312	text
+vnd.wap.xhtml+xml;charset=UTF-8	text
+text/plain; charset=gbk	text
+application/x-javascript;charset=GBK	text
+application/octet-stream, text/plain	octet-stream
+application/zip; charset=UTF-8	zip
+image/Jpeg; charset=utf-8	image
+image/jpeg; charset=utf-8	image
+text/javascript;	text
+width="700" height="1020"	other
+text/css; charset: gb2312	text
+text/plain, application/json;charset=utf-8	text
+text/html;charset=ISO-2022-JP	text
+image/BMP	image
+application/octet-stream;charset=utf-8	octet-stream
+width="900" height="1300"	other
+application/octet-stream, image/jpeg	image
+image/jpeg; charset=gbk	image
+text/plain; charset=utf-8;	text
+width="800" height="1202"	other
+text/html; Charset=gbk	text
+application/x-gzip	zip
+application/json; charset=US-ASCII	text
+application/x-download;charset=utf-8	other
+application/x-font-woff; charset=utf-8	other
+image/gif;	image
+text/xml;Charset=utf-8	text
+application/vnd.apple.mpegurl; charset=UTF-8	other
+image/jpg?pt=5&ek=1&mType=qzFsPicd	image
+text/html; charset=euc-kr	text
+image/png;charset=GB2312	image
+text/css;charset=GBK	text
+text/html; charset=UTF-8;	text
+application/javascript, application/javascript	text
+text/plain;charset=GB2312	text
+width="900" height="1350"	other
+width="1285" height="2101"	other
+audio/x-m4a	audio
+text/html; charset=windows-1251	text
+text/html;charset=GB2312	text
+image/vnd.wap.wbmp	image
+text/xml, text/html; charset=gbk	text
+text/javascript; charset=ISO-8859-1	text
+width="1274" height="2116"	other
+text/css; charset=GB18030	text
+width="513" height="785"	other
+width="439" height="723"	other
+application/jsont;charset=UTF-8	text
+application/json; charset=gb2312	text
+width="800" height="1130"	other
+image/GIF	image
+text/javascript; charset=GBK	text
+width="800" height="1080"	other
+width="900" height="1352"	other
+text/html;charset=UTF-8, text/html; charset=utf-8	text
+width="453" height="722"	other
+width="1366" height="2128"	other
+width="682" height="956"	other
+text/vnd.wap.wml;Charset =utf-8	text
+application/vnd.ms-fontobject	octet-stream
+application/json; charset=GBK	text
+application/x-javascript; Charset=UTF-8	text
+application/json; charset=gbk	text
+application/vnd.wap.xhtml+xml; charset=UTF-8	text
+text/vnd.wap.wml; charset=utf-8; Charset=utf-8	text
+width="485" height="749"	other
+width="1432" height="2136"	other
+text/javascript; charset=Big5	text
+text/vnd.wap.wml; charset=gb2312	text
+text/html; charset=ZHS16GBK	text
+text/html; charset="UTF-8"	text
+text/html;charset=UTF-8;	text
+text/css; charset: UTF-8	text
+application/x-font-woff;charset=UTF-8	text
+text/plain; charset=ISO-8859-1	text
+text/html; charset=zh-cn	text
+text/html; charset=EUC-JP	text
+text/json; charset=utf-8	text
+Image/BMP	image
+application/xml; charset=gbk	text
+text/css;	text
+application/octet-stream; charset=UTF-8	octet-stream
+text/css;charset=ISO-8859-1	text
+application/javascript;;	text
+text/HTML; charset=GB2312	text
+../../Images/Jpeg	image
+text/xml; charset=GBK	text
+application/x-javascript ;charset=gb2312	text
+text/html; charset=Windows-1251	text
+image/jpeg;charset=gbk	image
+text/html; charset=gb18030	text
+text/html;charset=GB18030	text
+application/javascript; charset=ISO-8859-1	text
+image/jpeg; charset=GBK	image
+application/x-javascript;charset=utf8	text
+text/javascript;charset=gbk	text
+text/html; charset=utf-8,gbk	text
+text/html ;charset=NULL	text
+jpg	image
+text/vnd.wap.wml;chartset=utf-8;charset=utf-8	text
+text/javascript;charset=ISO-8859-1	text
+x-javascript; charset=utf-8	text
+image/gif, image/gif	image
+application/x-script; charset=utf-8	text
+application/Json; charset=utf-8	text
+application/xhtml+xml	text
+text/javascript;charset=utf8	text
+text/html; charset=utf8mb4	text
+image/JPEG;charset=utf-8	image
+application/json;charset=utf8	text
+application/json; charset=utf8	text
+image/Gif; charset=utf-8	image
+Content-type: application/json;charset=GBK	text
+image/png;	image
+image/x-icon;charset=utf-8	image
+image/gif; charset=GBK	image
+text/json;	text
+text/xml;charset=gbk	text
+text/html;charset=gb18030	text
+application/mtd	other
+application/vnd.groove-tool-template	other
+application/ogg	video
+image/jpeg;charset=gb2312	image
+text/javascript;charset=utf-8;	text
+appliaction/json;charset=UTF-8	text
+text/plain, text/plain;charset=utf-8	text
+application/json;charset=UTF-8, applicatoin/json	text
+text/JSON; charset=UTF-8	text
+application/forece-download	other
+image/Png	image
+photo	image
+text/css;charset=utf8	text
+application/json;charset=GB2312	text
+Image/gif	image
+gif image/gif	image
+text/html; encoding=UTF8;charset=UTF-8	text
+text/html; Charset=gb2312,text/html; Charset=gb2312	text
+text/xml; charset=utf-8,text/html; Charset=gb2312	text
+text/html; Charset=GBK	text
+application/oct-stream	octet-stream
+application/vnd.syncml+xml	text
+application/jsonp;charset=gb2312	text
+image/gif; charset=binary	image
+Text/HTML; charset=gb2312	text
+application/javascript;	text
+text/json; charset=GBK	text
+application/xml;charset=utf-8	text
+application/octet-stream, text/javascript;charset=utf-8	octet-stream
+;charset=UTF-8	text
+image/Png; charset=utf-8	image
+text/cache-manifest; charset=UTF-8	text
+image/jpeg; charset=gb2312	image
+text/json ; charset=gbk	text
+application/x-protobuf	text
+text/html, application/json;charset=UTF-8	text
+text/vnd.wap.wml;	text
+application/json;charset:utf-8	text
+text/html; charset=big5	text
+text/vnd.wap.wml; charset=gbk	text
+text/HTML; Charset=GB2312	text
+text/json; charset=gb2312	text
+text/html; charset=utf-8,GBK	text
+image/x-ico	image
+text/html;chartset:utf-8	text
+text/vnd.wap.wml;; charset=utf-8	text
+text/json; charset=gbk	text
+application/x-json; encoding=UTF8;charset=UTF-8	text
+text/xml; charset=gb2312	text
+image/gif; charset=GB2312	image
+charset=utf-8	text
+text/xml;charset=ISO-8859-1	text
+text/html; charset=uft-8	text
+text/css; Charset=GB2312	text
+text/jsonp;charset=UTF-8	text
+text/plain; charset=utf-8;charset=utf-8	text
+text/javascript;charset:utf-8	text
+multipart/mixed; boundary="EoGQrHe9iV/RC"	other
+video/quicktime	video
+image/gif; charset=US-ASCII	image
+Content-type: text/javascript	text
+plain/text; charset=utf-8	text
+text/plain; charset=utf8	text
+text/html; charset=UTF-8;, text/html	text
+text/xml;charset=GB2312	text
+application/x-javascript;charset=ISO-8859-1	text
+application/vnd.wap.xhtml+xml;charset=UTF-8	text
+text/html; charset=gb2312,utf-8	text
+application/java;charset=UTF-8	text
+application/force-download	other
+applicaton/octet-stream	octet-stream
+image/gif;charset=utf8	image
+text/xml,charset=utf-8	text
+text/javascript; charset="UTF-8"	text
+text/html; gb2312=;charset=ISO-8859-1	text
+application/json;charset=utf-8;	text
+image/tiff	image
+text/plain 	text
+mpeg	video
+
+
+
+
