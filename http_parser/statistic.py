@@ -316,7 +316,7 @@ def statistic_table3(image_output_file,content_type_file):
     type_traffic_statistic = defaultdict(int)
     type_median_statistic = {}
 
-    for w in ['zip', 'text', 'image', '-', 'octet-stream', 'other', 'video', 'audio']:
+    for w in ['zip', 'text', 'image', '-', 'octet-stream', 'other', 'video', 'audio','total']:
         type_median_statistic[w] = []
 
     with open(image_output_file) as r_handler:
@@ -339,11 +339,20 @@ def statistic_table3(image_output_file,content_type_file):
                         type_count_statistic['zip'] += 1
                         type_traffic_statistic['zip'] += int(terms[-2])
                         type_median_statistic['zip'].append(int(terms[-2]))
+
+                        type_count_statistic['total'] += 1
+                        type_traffic_statistic['total'] += int(terms[-2])
+                        type_median_statistic['total'].append(int(terms[-2]))
+
+
                     else:
                         type_count_statistic[key_map[terms[-3]]] += 1
                         type_traffic_statistic[key_map[terms[-3]]] += int(terms[-2])
                         type_median_statistic[key_map[terms[-3]]].append(int(terms[-2]))
 
+                        type_count_statistic['total'] += 1
+                        type_traffic_statistic['total'] += int(terms[-2])
+                        type_median_statistic['total'].append(int(terms[-2]))
 
 
         except Exception as e:
@@ -352,8 +361,8 @@ def statistic_table3(image_output_file,content_type_file):
     print statistic
     for k in type_count_statistic:
         key = k
-        number_ratio = type_count_statistic[k]/float(sum(type_count_statistic.values()))
-        traffic_ratio = type_traffic_statistic[k]/float(sum(type_traffic_statistic.values()))
+        number_ratio = type_count_statistic[k]/float(type_count_statistic['total'])
+        traffic_ratio = type_traffic_statistic[k]/float(type_traffic_statistic['total'])
         med = median(type_median_statistic[k])
         avg = type_traffic_statistic[k] / float(type_count_statistic[k])
         print "{}\t{}\t{}\t{}\t{}".format(key,number_ratio,traffic_ratio,med,avg)
