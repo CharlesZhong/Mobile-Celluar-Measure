@@ -7,7 +7,7 @@ from datetime import datetime
 import logging
 import sys
 import image
-
+import numpy as np
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
@@ -314,6 +314,10 @@ def statistic_table3(image_output_file,content_type_file):
 
     type_count_statistic = defaultdict(int) # count for
     type_traffic_statistic = defaultdict(int)
+    type_median_statistic = {}
+
+    for w in ['zip', 'text', 'image', '-', 'octet-stream', 'other', 'video', 'audio']:
+        type_median_statistic[w] = []
 
     with open(image_output_file) as r_handler:
         try:
@@ -334,10 +338,11 @@ def statistic_table3(image_output_file,content_type_file):
                     if key_map[terms[-3]] == 'text' and ("gzip" in terms[4] or "identity" in terms[4] or "deflate" in terms[4]):
                         type_count_statistic['zip'] += 1
                         type_traffic_statistic['zip'] += int(terms[-2])
+                        type_median_statistic['zip'].append(int(terms[-2]))
                     else:
                         type_count_statistic[key_map[terms[-3]]] += 1
                         type_traffic_statistic[key_map[terms[-3]]] += int(terms[-2])
-
+                        type_median_statistic[key_map[terms[-3]]].append(int(terms[-2]))
 
 
 
@@ -345,11 +350,21 @@ def statistic_table3(image_output_file,content_type_file):
             statistic['error'] += 1
 
     print statistic
+    for k in type_count_statistic:
+        key = k
+        number_ratio = type_count_statistic[k]/float(sum(type_count_statistic.values()))
+        traffic_ratio = type_traffic_statistic[k]/float(sum(type_traffic_statistic.values()))
+        med = median(type_median_statistic[k])
+        avg = type_traffic_statistic[k] / float(type_count_statistic[k])
+        print "{}\t{}\t{}\t{}\t{}".format(key,number_ratio,traffic_ratio,med,avg)
 
-    print type_count_statistic
-    print type_traffic_statistic
 
 
+def median(lst):
+    if not lst:
+        return
+    lst=sorted(lst)
+    return lst[len(lst)//2]
 
 
 if __name__ == "__main__":
