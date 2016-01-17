@@ -117,6 +117,52 @@ def compress_image_by_webp(body, ):
 
     return zip_size_50, md5_code_50, run_time_50, zip_size_70, md5_code_70, run_time_70, zip_size_75, md5_code_75, run_time_75,
 
+def compress_image_by_webp75(body, ):
+    """ Compress image and return runtime
+    """
+    try:
+        with open("cal_image", 'w') as w:
+            w.write(body)
+        FNULL = open(os.devnull, 'w')
+        start = time.clock()
+        subprocess.call(["cwebp", "-q", "75", "cal_image", "-o", "zip_image_75.webp"], stdout=FNULL,
+                        stderr=subprocess.STDOUT)
+        end = time.clock()
+        zip_size_75 = os.stat("zip_image_75.webp").st_size
+        md5_code_75 = md5(open("zip_image_75.webp").read()).hexdigest()
+        run_time_75 = end - start
+
+    except Exception as e:
+        logging.info("error {}".format(e))
+        zip_size_75, md5_code_75, run_time_75, = '-', '-', '-'
+
+    return zip_size_75, md5_code_75, run_time_75,
+
+def compress_image_by_ziporxy(body, ):
+    """ Compress image and return runtime
+    """
+    try:
+        with open("cal_image", 'w') as w:
+            w.write(body)
+        FNULL = open(os.devnull, 'w')
+        start = time.clock()
+        subprocess.call("./demo_high/demo -f cal_image -o ziproxy_image.jpg", shell=True, stdout=FNULL,
+                        stderr=subprocess.STDOUT)
+        end = time.clock()
+        zip_size_zp = os.stat("ziproxy_image.jpg").st_size
+
+        md5_code_zp = md5(open("ziproxy_image.jpg").read()).hexdigest()
+        run_time_zp = end - start
+    except Exception as e:
+        logging.info("error {}".format(e))
+        zip_size_zp, md5_code_zp, run_time_zp, = '-', '-', '-'
+
+
+
+    return zip_size_zp, md5_code_zp, run_time_zp
+
+
+
 
 # @profile
 def compute_webp_ssim():
@@ -223,5 +269,7 @@ def get_ziproxy_total_ssim(body):
 
 
 if __name__ == "__main__":
-    print compute_ssim("/Users/Charles/Desktop/4.jpg", "/Users/Charles/Desktop/70.webp")
-    print compute_ssim("/Users/Charles/Desktop/4.jpg", "/Users/Charles/Desktop/50.webp")
+    # print compute_ssim("/Users/Charles/Desktop/4.jpg", "/Users/Charles/Desktop/70.webp")
+    # print compute_ssim("/Users/Charles/Desktop/4.jpg", "/Users/Charles/Desktop/50.webp")
+
+    print get_ziproxy_total_ssim("1.jpg")
