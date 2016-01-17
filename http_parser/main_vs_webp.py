@@ -11,11 +11,13 @@ import logging
 import argparse
 from datetime import datetime
 from collections import defaultdict
+
 from common_tools import parent_parser
 from parser import Request_Parser, Response_Parser
 from config import settings
-from image import image_type_detection, compress_image_by_webp75, get_image_info, convert_webp_to_png, ziprxoy_zip,compute_webp_ssim
+from image import image_type_detection, compress_image_by_webp75, get_image_info
 from model import Image_Model
+
 reload(sys)
 sys.setdefaultencoding('utf-8')
 

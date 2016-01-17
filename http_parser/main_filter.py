@@ -118,7 +118,7 @@ def main():
 
                     # image
                     # TODO label image
-                    if real_image_type and real_image_type  in ['jpeg', 'png']:
+                    if real_image_type and real_image_type  in ['jpeg', ]:
                         w_filter_image_handler.write(line+"\n")
 
                         md5_code, width, height, image_pix_count = get_image_info(real_image_type, reponse_body)
