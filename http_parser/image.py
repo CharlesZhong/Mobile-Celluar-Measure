@@ -125,7 +125,7 @@ def compress_image_by_webp75(body, ):
             w.write(body)
         FNULL = open(os.devnull, 'w')
         start = time.time()
-        subprocess.call(["cwebp", "-q", "75", "cal_image", "-o", "zip_image_75.webp"], stdout=FNULL,
+        subprocess.call("cwebp -q 75 cal_image -o zip_image_75.webp", shell=True, stdout=FNULL,
                         stderr=subprocess.STDOUT)
         end = time.time()
 
@@ -134,7 +134,7 @@ def compress_image_by_webp75(body, ):
         run_time_75 = end - start
 
         start = time.time()
-        subprocess.call(["dwebp", "zip_image_75.webp", "-o", "web2png.jpg"], stdout=FNULL,
+        subprocess.call("dwebp zip_image_75.webp -o web2png.jpg",shell=True, stdout=FNULL,
                         stderr=subprocess.STDOUT)
         end = time.time()
 
