@@ -101,7 +101,7 @@ echo "Done!"
 
 # Set dir and gen data
 setdir
-#gendata
+gendata
 #wait
 #clean
 # Loop for different options
