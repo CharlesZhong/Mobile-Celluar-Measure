@@ -8,7 +8,7 @@ import logging
 import sys
 import subprocess
 from PIL import Image
-from ssim import compute_ssim
+# from ssim import compute_ssim
 from webm import handlers
 from webm import decode
 import time
@@ -85,26 +85,26 @@ def compress_image_by_webp(body, ):
         with open("cal_image", 'w') as w:
             w.write(body)
         FNULL = open(os.devnull, 'w')
-        start = time.clock()
+        start = time.time()
         subprocess.call(["cwebp", "-q", "50", "cal_image", "-o", "zip_image_50.webp"], stdout=FNULL,
                         stderr=subprocess.STDOUT)
-        end = time.clock()
+        end = time.time()
         zip_size_50 = os.stat("zip_image_50.webp").st_size
         md5_code_50 = md5(open("zip_image_50.webp").read()).hexdigest()
         run_time_50 = end - start
 
-        start = time.clock()
+        start = time.time()
         subprocess.call(["cwebp", "-q", "70", "cal_image", "-o", "zip_image_70.webp"], stdout=FNULL,
                         stderr=subprocess.STDOUT)
-        end = time.clock()
+        end = time.time()
         zip_size_70 = os.stat("zip_image_70.webp").st_size
         md5_code_70 = md5(open("zip_image_70.webp").read()).hexdigest()
         run_time_70 = end - start
 
-        start = time.clock()
+        start = time.time()
         subprocess.call(["cwebp", "-q", "75", "cal_image", "-o", "zip_image_75.webp"], stdout=FNULL,
                         stderr=subprocess.STDOUT)
-        end = time.clock()
+        end = time.time()
         zip_size_75 = os.stat("zip_image_75.webp").st_size
         md5_code_75 = md5(open("zip_image_75.webp").read()).hexdigest()
         run_time_75 = end - start
@@ -124,19 +124,27 @@ def compress_image_by_webp75(body, ):
         with open("cal_image", 'w') as w:
             w.write(body)
         FNULL = open(os.devnull, 'w')
-        start = time.clock()
+        start = time.time()
         subprocess.call(["cwebp", "-q", "75", "cal_image", "-o", "zip_image_75.webp"], stdout=FNULL,
                         stderr=subprocess.STDOUT)
-        end = time.clock()
+        end = time.time()
+
         zip_size_75 = os.stat("zip_image_75.webp").st_size
         md5_code_75 = md5(open("zip_image_75.webp").read()).hexdigest()
         run_time_75 = end - start
 
+        start = time.time()
+        subprocess.call(["dwebp", "zip_image_75.webp", "-o", "web2png.jpg"], stdout=FNULL,
+                        stderr=subprocess.STDOUT)
+        end = time.time()
+
+        dwebp_time = end - start
+
     except Exception as e:
         logging.info("error {}".format(e))
-        zip_size_75, md5_code_75, run_time_75, = '-', '-', '-'
+        zip_size_75, md5_code_75, run_time_75,dwebp_time = '-', '-', '-','-'
 
-    return zip_size_75, md5_code_75, run_time_75,
+    return zip_size_75, md5_code_75, run_time_75,dwebp_time
 
 def compress_image_by_ziporxy(body, ):
     """ Compress image and return runtime
@@ -145,10 +153,10 @@ def compress_image_by_ziporxy(body, ):
         with open("cal_image", 'w') as w:
             w.write(body)
         FNULL = open(os.devnull, 'w')
-        start = time.clock()
-        subprocess.call("./demo_high/demo -f cal_image -o ziproxy_image.jpg", shell=True, stdout=FNULL,
+        start = time.time()
+        subprocess.call("./demo_median/demo -f cal_image -o ziproxy_image.jpg", shell=True, stdout=FNULL,
                         stderr=subprocess.STDOUT)
-        end = time.clock()
+        end = time.time()
         zip_size_zp = os.stat("ziproxy_image.jpg").st_size
 
         md5_code_zp = md5(open("ziproxy_image.jpg").read()).hexdigest()
@@ -182,10 +190,10 @@ def convert_webp_to_png():
     """
     try:
         FNULL = open(os.devnull, 'w')
-        start = time.clock()
+        start = time.time()
         subprocess.call(["dwebp", "zip_image.webp", "-o", "web2png.png"], stdout=FNULL,
                         stderr=subprocess.STDOUT)
-        end = time.clock()
+        end = time.time()
         run_time = end - start
     except Exception as e:
         run_time = '-'
@@ -198,10 +206,10 @@ def ziprxoy_zip():
     """
     try:
         FNULL = open(os.devnull, 'w')
-        start = time.clock()
+        start = time.time()
         subprocess.call("./demo/demo -f cal_image -o ziproxy_image", shell=True, stdout=FNULL,
                         stderr=subprocess.STDOUT)
-        end = time.clock()
+        end = time.time()
         run_time = end - start
     except Exception as e:
         run_time = '-'
@@ -246,6 +254,7 @@ def cal_ssim(body):
     except Exception as e:
         logging.info("error {} ".format(e))
     return high_ssim, median_ssim, low_ssim, high_size, median_size, low_size
+
 
 
 def get_ziproxy_total_ssim(body):

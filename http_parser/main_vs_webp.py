@@ -111,9 +111,9 @@ def main():
                     image_model = Image_Model(real_image_type, md5_code, width, height, image_pix_count)
 
 
-                    compress_md5_75, compress_size_75, cwebp_run_time_75, = compress_image_by_webp75(reponse_body)
+                    compress_md5_75, compress_size_75, cwebp_run_time_75,dwebp_run_time = compress_image_by_webp75(reponse_body)
 
-                    w_handler.write("{}\t{}\t{}\t{}\t{}\n".format(base_str, image_model,compress_md5_75, compress_size_75, cwebp_run_time_75,))
+                    w_handler.write("{}\t{}\t{}\t{}\t{}\t{}\n".format(base_str, image_model,compress_md5_75, compress_size_75, cwebp_run_time_75,dwebp_run_time))
 
 
 
