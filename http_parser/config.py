@@ -58,7 +58,24 @@ settings = {
     },
 
 
-
+    "s3_test":{
+        "data_dir": "/home/zhongxin/workspace/nsdi_2015/data",
+        "ori_input_file": "test_ori.txt",
+        "output_dir": "/home/zhongxin/workspace/nsdi_2015/data/result/test",
+        "base_output_file": "ori_output.txt",
+        "image_output_file": "image_output.txt",
+        "ori_image_output_file": "ori_image_output.txt",
+        "filter_image_output_file": "filter_image_output_file.txt",
+    },
+    "s3_prod":{
+        "data_dir": "/home/zhongxin/workspace/nsdi_2015/data",
+        "ori_input_file": "test_ori.txt",
+        "output_dir": "/home/zhongxin/workspace/nsdi_2015/data/result/prod",
+        "base_output_file": "ori_output.txt",
+        "image_output_file": "image_output.txt",
+        "ori_image_output_file": "ori_image_output.txt",
+        "filter_image_output_file": "filter_image_output_file.txt",
+    },
 
 
 }
