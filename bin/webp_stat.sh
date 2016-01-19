@@ -10,7 +10,7 @@ echo "-a or --all to plot cpu(c),mem(m) and net(n)"
 
 # Make directory to store the results
 setdir(){
-mkdir -p web_Stats
+mkdir -p webp_Stats
 cd webp_Stats
 }
 
