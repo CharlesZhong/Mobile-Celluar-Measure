@@ -105,7 +105,7 @@ def main():
                             os.mkdir(pwd)
                             logger.info("create dir :%d", dir_i)
 
-                        write_jpeg(os.path.join(pwd,"%03d.jpeg" %file_i), reponse_body)
+                        write_jpeg(os.path.join(pwd,"%04d.jpeg" %file_i), reponse_body)
                         file_i += 1
                         if file_i == FILE_LENGTH:
                             file_i = 0
