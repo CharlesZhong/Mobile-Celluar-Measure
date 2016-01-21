@@ -3,12 +3,13 @@ import os
 settings = {
     "mac_test": {
         "data_dir": "/Users/Charles/Data/NSDI2015",
-        "ori_input_file": "test_ori.txt",
+        "ori_input_file": "test_gen_jpeg.txt",
         "output_dir": "/Users/Charles/Data/NSDI2015/output/mac_test",
         "base_output_file": "ori_output.txt",
         "image_output_file": "image_output.txt",
         "ori_image_output_file": "ori_image_output.txt",
         "filter_image_output_file": "filter_image_output_file.txt",
+        "jpeg_dir": "/Users/Charles/Data/NSDI2015/jpeg",
     },
     "mac_prod":{
         "data_dir": "/Users/Charles/Data/NSDI2015",
@@ -18,6 +19,8 @@ settings = {
         "image_output_file": "image_output.txt",
         "ori_image_output_file": "ori_image_output.txt",
         "filter_image_output_file": "filter_image_output_file.txt",
+        "jpeg_dir": "/Users/Charles/Data/NSDI2015/jpeg",
+
     },
     "linux_test": {
         "data_dir": "/media/sf_baidu_data",
@@ -27,6 +30,7 @@ settings = {
         "image_output_file": "image_output.txt",
         "ori_image_output_file": "ori_image_output.txt",
         "filter_image_output_file": "filter_image_output_file.txt",
+        "jpeg_dir": "/Users/Charles/Data/NSDI2015/jpeg",
 
     },
     "linux_prod":{
@@ -40,21 +44,25 @@ settings = {
     },
     "thtf_test":{
         "data_dir": "/home/charles/Data/NSDI2015",
-        "ori_input_file": "test_ori.txt",
+        "ori_input_file": "ori_jpeg.txt",
         "output_dir": "/home/charles/Data/NSDI2015/result/test",
         "base_output_file": "ori_output.txt",
         "image_output_file": "image_output.txt",
         "ori_image_output_file": "ori_image_output.txt",
         "filter_image_output_file": "filter_image_output_file.txt",
+        "jpeg_dir": "/home/charles/Data/NSDI2015/jpeg",
+
     },
     "thtf_prod":{
         "data_dir": "/home/charles/Data/NSDI2015",
-        "ori_input_file": "test_ori.txt",
+        "ori_input_file": "ori_jpeg.txt",
         "output_dir": "/home/charles/Data/NSDI2015/result/prod",
         "base_output_file": "ori_output.txt",
         "image_output_file": "image_output.txt",
         "ori_image_output_file": "ori_image_output.txt",
         "filter_image_output_file": "filter_image_output_file.txt",
+        "jpeg_dir": "/home/charles/Data/NSDI2015/jpeg",
+
     },
 
 
