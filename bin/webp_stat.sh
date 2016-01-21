@@ -19,7 +19,7 @@ gendata(){
 echo "Collecting stats for 60sec with an interval of 10sec"
 dstat -tmnc 60 > dstat.dat&
 [ "$?" -ne 0 ] && echo "Please check if you have installed dstat" && exit 1
-sleep 72000s
+sleep 54000s
 exec 2>/dev/null
 kill $! >/dev/null 2>&1
 
