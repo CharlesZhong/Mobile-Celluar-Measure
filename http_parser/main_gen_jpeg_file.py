@@ -101,7 +101,7 @@ def main():
 
                     if real_image_type and real_image_type  == 'jpeg':
                         if file_i == 0:
-                            pwd = os.path.join(store_jpeg_dir,str(dir_i))
+                            pwd = os.path.join(store_jpeg_dir,"%02d"%dir_i)
                             os.mkdir(pwd)
                             logger.info("create dir :%d", dir_i)
 
