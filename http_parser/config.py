@@ -10,6 +10,8 @@ settings = {
         "ori_image_output_file": "ori_image_output.txt",
         "filter_image_output_file": "filter_image_output_file.txt",
         "jpeg_dir": "/Users/Charles/Data/NSDI2015/jpeg",
+        "webp_time_output_file": "webp_time_output_file.txt",
+        "zip_time_output_file" : "zip_time_output_file.txt",
     },
     "mac_prod":{
         "data_dir": "/Users/Charles/Data/NSDI2015",
@@ -20,6 +22,8 @@ settings = {
         "ori_image_output_file": "ori_image_output.txt",
         "filter_image_output_file": "filter_image_output_file.txt",
         "jpeg_dir": "/Users/Charles/Data/NSDI2015/jpeg",
+        "webp_time_output_file": "webp_time_output_file.txt",
+        "zip_time_output_file" : "zip_time_output_file.txt",
 
     },
     "linux_test": {
@@ -51,6 +55,8 @@ settings = {
         "ori_image_output_file": "ori_image_output.txt",
         "filter_image_output_file": "filter_image_output_file.txt",
         "jpeg_dir": "/home/charles/Data/NSDI2015/jpeg",
+        "webp_time_output_file": "webp_time_output_file.txt",
+        "zip_time_output_file" : "zip_time_output_file.txt",
 
     },
     "thtf_prod":{
@@ -62,6 +68,8 @@ settings = {
         "ori_image_output_file": "ori_image_output.txt",
         "filter_image_output_file": "filter_image_output_file.txt",
         "jpeg_dir": "/home/charles/Data/NSDI2015/jpeg",
+        "webp_time_output_file": "webp_time_output_file.txt",
+        "zip_time_output_file" : "zip_time_output_file.txt",
 
     },
 
@@ -74,6 +82,9 @@ settings = {
         "image_output_file": "image_output.txt",
         "ori_image_output_file": "ori_image_output.txt",
         "filter_image_output_file": "filter_image_output_file.txt",
+        "jpeg_dir": "/home/zhongxin/workspace/nsdi_2015/data/jpeg",
+        "webp_time_output_file": "webp_time_output_file.txt",
+        "zip_time_output_file" : "zip_time_output_file.txt",
     },
     "s3_prod":{
         "data_dir": "/home/zhongxin/workspace/nsdi_2015/data",
@@ -83,6 +94,9 @@ settings = {
         "image_output_file": "image_output.txt",
         "ori_image_output_file": "ori_image_output.txt",
         "filter_image_output_file": "filter_image_output_file.txt",
+        "jpeg_dir": "/home/zhongxin/workspace/nsdi_2015/data/jpeg",
+        "webp_time_output_file": "webp_time_output_file.txt",
+        "zip_time_output_file" : "zip_time_output_file.txt",
     },
 
 
