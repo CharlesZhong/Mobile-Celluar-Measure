@@ -10,8 +10,8 @@ echo "-a or --all to plot cpu(c),mem(m) and net(n)"
 
 # Make directory to store the results
 setdir(){
-mkdir -p zip_Stats
-cd zip_Stats
+mkdir -p test_Stats
+cd test_Stats
 }
 
 # Use dstat to get the data set
