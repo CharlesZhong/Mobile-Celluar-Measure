@@ -74,7 +74,7 @@ def main():
     RESPONSE_HEADER_KEYS = ['Content-Length', 'Content-Type', ]
 
     DIR_LENGTH = 100
-    if config['setting'] == "thtf_test":
+    if options.config == "thtf_test":
         FILE_LENGTH = 100
     else:
         FILE_LENGTH = 10000
