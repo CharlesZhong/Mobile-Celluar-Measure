@@ -48,13 +48,13 @@ settings = {
     },
     "thtf_test":{
         "data_dir": "/home/charles/Data/NSDI2015",
-        "ori_input_file": "ori_jpeg.txt",
+        "ori_input_file": "ori_jpeg_sample.txt",
         "output_dir": "/home/charles/Data/NSDI2015/result/test",
         "base_output_file": "ori_output.txt",
         "image_output_file": "image_output.txt",
         "ori_image_output_file": "ori_image_output.txt",
         "filter_image_output_file": "filter_image_output_file.txt",
-        "jpeg_dir": "/home/charles/Data/NSDI2015/jpeg",
+        "jpeg_dir": "/home/charles/Data/NSDI2015/jpeg_test",
         "webp_time_output_file": "webp_time_output_file.txt",
         "zip_time_output_file" : "zip_time_output_file.txt",
 

@@ -74,7 +74,11 @@ def main():
     RESPONSE_HEADER_KEYS = ['Content-Length', 'Content-Type', ]
 
     DIR_LENGTH = 100
-    FILE_LENGTH = 10000
+    if config['setting'] == "thtf_test":
+        FILE_LENGTH = 100
+    else:
+        FILE_LENGTH = 10000
+    logger.info("File_Length : %d", FILE_LENGTH)
 
     dir_i, file_i = 0,0
     pwd = ""

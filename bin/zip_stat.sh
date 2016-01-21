@@ -19,7 +19,7 @@ gendata(){
 echo "Collecting stats for sec with an interval of 60sec"
 dstat -tmnc 60 > dstat.dat&
 [ "$?" -ne 0 ] && echo "Please check if you have installed dstat" && exit 1
-sleep 10800s
+sleep 7200s
 exec 2>/dev/null
 kill $! >/dev/null 2>&1
 
@@ -51,7 +51,7 @@ set title $title
 set xlabel $xlabel
 
 
-set xtics 0,3600,72000
+set xtics 0,60,7200
 #set xdata time
 
 set ylabel $ylabel
