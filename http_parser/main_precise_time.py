@@ -42,12 +42,12 @@ def main():
 
     jpeg_dir = config['jpeg_dir']
 
-    zip_time_output_file = os.path.join(config['output_dir'], datetime.now().strftime("%Y%m%d%H%M%S") + "_" + config['zip_time_output_file'])
-    webp_time_output_file = os.path.join(config['output_dir'], datetime.now().strftime("%Y%m%d%H%M%S") +  "_" + config['webp_time_output_file'])
 
     if not os.path.isdir(jpeg_dir):
         logging.error("jpeg_dir : %s is not exist!", jpeg_dir)
         sys.exit(-1)
+
+    zip_time_output_file = os.path.join(config['output_dir'], datetime.now().strftime("%Y%m%d%H%M%S") + "_" + config['zip_time_output_file'])
 
     zip_statistic = defaultdict(int)
     with open(zip_time_output_file, 'w') as zip_handler:
@@ -64,6 +64,8 @@ def main():
     logging.info("[Stat] zip_statistic: {}".format(zip_statistic))
 
     time.sleep(300)
+
+    webp_time_output_file = os.path.join(config['output_dir'], datetime.now().strftime("%Y%m%d%H%M%S") +  "_" + config['webp_time_output_file'])
 
     webp_statistic = defaultdict(int)
     with open(webp_time_output_file, 'w') as webp_handler:
