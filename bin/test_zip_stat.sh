@@ -17,9 +17,9 @@ cd test_Stats
 # Use dstat to get the data set
 gendata(){
 echo "Collecting stats for sec with an interval of 60sec"
-dstat -tmnc 10 > dstat.dat&
+dstat -tmnc 1 > dstat.dat&
 [ "$?" -ne 0 ] && echo "Please check if you have installed dstat" && exit 1
-sleep 1800s
+sleep 900s
 exec 2>/dev/null
 kill $! >/dev/null 2>&1
 

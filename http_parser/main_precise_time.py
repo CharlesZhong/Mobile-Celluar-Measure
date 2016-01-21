@@ -63,7 +63,10 @@ def main():
 
     logging.info("[Stat] zip_statistic: {}".format(zip_statistic))
 
-    time.sleep(300)
+    if options.config == "thtf_test":
+        time.sleep(20)
+    else:
+        time.sleep(600)
 
     webp_time_output_file = os.path.join(config['output_dir'], datetime.now().strftime("%Y%m%d%H%M%S") +  "_" + config['webp_time_output_file'])
 
