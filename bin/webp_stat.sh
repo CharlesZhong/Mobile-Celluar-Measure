@@ -37,8 +37,7 @@ awk -F ' ' '{printf ("%3d %3d %3d %3d %3d %3d\n" ,$1*2 ,$2/2 ,100-$1*2-$2/2  ,$4
 awk 'NR==FNR{a[NR]=$0}NR>FNR{printf("%s%s\n", a[FNR],$0)}' left.dat right.dat >> webp_dstat.dat
 
 
-awk -F '|' 'BEGIN {i=0} {printf(i  $1  $2  $3 "\n")} {i=i+60}' right.dat > plot_stat.dat
-
+awk -F ' ' 'BEGIN {i=0} {printf("%d %d %d %d\n",i  ,$1,  $2,  $3)} {i=i+60}' right.dat > plot_stat.dat
 
 }
 #############################################
