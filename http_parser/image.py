@@ -127,7 +127,7 @@ def compress_jpeg_file_by_webp75(jpeg_file):
         cwebp_time = end - start
 
         start = time.time()
-        subprocess.call("dwebp zip_image_75.webp -o web2png.jpg", shell=True, stdout=FNULL,
+        subprocess.call("dwebp zip_image_75.webp -o web2png.png", shell=True, stdout=FNULL,
                         stderr=subprocess.STDOUT)
         end = time.time()
 

@@ -47,26 +47,26 @@ def main():
         logging.error("jpeg_dir : %s is not exist!", jpeg_dir)
         sys.exit(-1)
 
-    zip_time_output_file = os.path.join(config['output_dir'], datetime.now().strftime("%Y%m%d%H%M%S") + "_" + config['zip_time_output_file'])
+    #zip_time_output_file = os.path.join(config['output_dir'], datetime.now().strftime("%Y%m%d%H%M%S") + "_" + config['zip_time_output_file'])
 
-    zip_statistic = defaultdict(int)
-    with open(zip_time_output_file, 'w') as zip_handler:
-        for root, dirs, files in os.walk(jpeg_dir):
-            for file in files:
-                zip_statistic['total'] += 1
-                jpeg_file = os.path.join(root, file)
-                try:
-                    zip_time = compress_jpeg_file_by_ziporxy(jpeg_file)
-                    zip_handler.write("{}\n".format(zip_time))
-                except:
-                    zip_statistic['error'] += 1
-
-    logging.info("[Stat] zip_statistic: {}".format(zip_statistic))
-
-    if options.config == "thtf_test":
-        time.sleep(20)
-    else:
-        time.sleep(600)
+    # zip_statistic = defaultdict(int)
+    # with open(zip_time_output_file, 'w') as zip_handler:
+    #     for root, dirs, files in os.walk(jpeg_dir):
+    #         for file in files:
+    #             zip_statistic['total'] += 1
+    #             jpeg_file = os.path.join(root, file)
+    #             try:
+    #                 zip_time = compress_jpeg_file_by_ziporxy(jpeg_file)
+    #                 zip_handler.write("{}\n".format(zip_time))
+    #             except:
+    #                 zip_statistic['error'] += 1
+    #
+    # logging.info("[Stat] zip_statistic: {}".format(zip_statistic))
+    #
+    # if options.config == "thtf_test":
+    #     time.sleep(20)
+    # else:
+    #     time.sleep(600)
 
     webp_time_output_file = os.path.join(config['output_dir'], datetime.now().strftime("%Y%m%d%H%M%S") +  "_" + config['webp_time_output_file'])
 
