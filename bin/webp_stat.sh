@@ -16,7 +16,7 @@ cd webp_Stats
 
 # Use dstat to get the data set
 gendata(){
-echo "Collecting stats for 60sec with an interval of 10sec"
+echo "Collecting stats for 24h with an interval of 1min"
 dstat -tmnc 60 > dstat.dat&
 [ "$?" -ne 0 ] && echo "Please check if you have installed dstat" && exit 1
 sleep 86400s
