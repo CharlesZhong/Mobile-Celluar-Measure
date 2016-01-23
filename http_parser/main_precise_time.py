@@ -15,7 +15,7 @@ from collections import defaultdict
 
 from common_tools import parent_parser
 from config import settings
-from image import  compress_jpeg_file_by_webp75, compress_jpeg_file_by_ziporxy
+from image import  compress_jpeg_file_by_webp75, compress_jpeg_file_by_ziporxy,compress_local_jpeg_file_by_ziporxy,compress_local_jpeg_file_by_webp75
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -47,22 +47,24 @@ def main():
         logging.error("jpeg_dir : %s is not exist!", jpeg_dir)
         sys.exit(-1)
 
-    #zip_time_output_file = os.path.join(config['output_dir'], datetime.now().strftime("%Y%m%d%H%M%S") + "_" + config['zip_time_output_file'])
+    zip_time_output_file = os.path.join(config['output_dir'], datetime.now().strftime("%Y%m%d%H%M%S") + "_" + config['zip_time_output_file'])
 
-    # zip_statistic = defaultdict(int)
-    # with open(zip_time_output_file, 'w') as zip_handler:
-    #     for root, dirs, files in os.walk(jpeg_dir):
-    #         for file in files:
-    #             zip_statistic['total'] += 1
-    #             jpeg_file = os.path.join(root, file)
-    #             try:
-    #                 zip_time = compress_jpeg_file_by_ziporxy(jpeg_file)
-    #                 zip_handler.write("{}\n".format(zip_time))
-    #             except:
-    #                 zip_statistic['error'] += 1
-    #
-    # logging.info("[Stat] zip_statistic: {}".format(zip_statistic))
-    #
+    zip_statistic = defaultdict(int)
+    with open(zip_time_output_file, 'w') as zip_handler:
+        for root, dirs, files in os.walk(jpeg_dir):
+            for file in files:
+                zip_statistic['total'] += 1
+                jpeg_file = os.path.join(root, file)
+                try:
+                    zip_time = compress_jpeg_file_by_ziporxy(jpeg_file)
+                    mv_time, local_zip_time = compress_local_jpeg_file_by_ziporxy(jpeg_file)
+
+                    zip_handler.write("{}\t{}\t{}\n".format(zip_time,mv_time, local_zip_time))
+                except:
+                    zip_statistic['error'] += 1
+
+    logging.info("[Stat] zip_statistic: {}".format(zip_statistic))
+
     # if options.config == "thtf_test":
     #     time.sleep(20)
     # else:
@@ -78,7 +80,10 @@ def main():
                 jpeg_file = os.path.join(root, file)
                 try:
                     cwebp_time , dwebp_time = compress_jpeg_file_by_webp75(jpeg_file)
-                    webp_handler.write("{}\t{}\n".format(cwebp_time,dwebp_time))
+
+                    mv_time, local_cwebp_time, local_dwebp_time = compress_local_jpeg_file_by_webp75(jpeg_file)
+
+                    webp_handler.write("{}\t{}\t{}\t{}\t{}\n".format(cwebp_time,dwebp_time,mv_time, local_cwebp_time, local_dwebp_time))
                 except:
                     webp_statistic['error'] += 1
 

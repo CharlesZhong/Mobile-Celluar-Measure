@@ -116,7 +116,7 @@ def compress_image_by_webp(body, ):
         zip_size_75, md5_code_75, run_time_75, = '-', '-', '-'
 
     return zip_size_50, md5_code_50, run_time_50, zip_size_70, md5_code_70, run_time_70, zip_size_75, md5_code_75, run_time_75,
-
+##########################################################
 def compress_jpeg_file_by_webp75(jpeg_file):
     try:
         FNULL = open(os.devnull, 'w')
@@ -140,6 +140,36 @@ def compress_jpeg_file_by_webp75(jpeg_file):
 
     return cwebp_time, dwebp_time
 
+def compress_local_jpeg_file_by_webp75(jpeg_file):
+    try:
+        FNULL = open(os.devnull, 'w')
+
+        start = time.time()
+        subprocess.call("cp {} cal_image".format(jpeg_file), shell=True, stdout=FNULL,
+                        stderr=subprocess.STDOUT)
+        end = time.time()
+        mv_time = end - start
+
+        start = time.time()
+        subprocess.call("cwebp -q 75 cal_image -o zip_image_75.webp", shell=True, stdout=FNULL,
+                        stderr=subprocess.STDOUT)
+        end = time.time()
+        cwebp_time = end - start
+
+        FNULL = open(os.devnull, 'w')
+        start = time.time()
+        subprocess.call("dwebp zip_image_75.webp -o {}".format("webp.png"), shell=True, stdout=FNULL,
+                        stderr=subprocess.STDOUT)
+        end = time.time()
+
+        dwebp_time = end - start
+
+    except Exception as e:
+        logging.info("error {}".format(e))
+        mv_time,cwebp_time, dwebp_time = '-', '-','-'
+
+    return mv_time,cwebp_time, dwebp_time
+
 def compress_jpeg_file_by_ziporxy(filename):
     """ Compress image and return runtime
     """
@@ -155,6 +185,29 @@ def compress_jpeg_file_by_ziporxy(filename):
         zip_time = '-'
     return zip_time
 
+def compress_local_jpeg_file_by_ziporxy(filename):
+    """ Compress image and return runtime
+    """
+    try:
+        FNULL = open(os.devnull, 'w')
+
+        start = time.time()
+        subprocess.call("cp {} cal_image".format(filename), shell=True, stdout=FNULL,
+                        stderr=subprocess.STDOUT)
+        end = time.time()
+        mv_time = end - start
+
+        start = time.time()
+        subprocess.call("./demo_median/demo -f cal_image -o ziproxy_image.jpg", shell=True, stdout=FNULL,
+                        stderr=subprocess.STDOUT)
+        end = time.time()
+        zip_time = end - start
+    except Exception as e:
+        logging.info("error {}".format(e))
+        zip_time = '-'
+        mv_time = '-'
+    return zip_time, mv_time
+###############################
 def compress_image_by_webp75(body, ):
     """ Compress image and return runtime
     """
@@ -202,12 +255,9 @@ def compress_image_by_ziporxy(body, ):
     except Exception as e:
         logging.info("error {}".format(e))
         zip_size_zp, md5_code_zp, run_time_zp, = '-', '-', '-'
-
-
-
     return zip_size_zp, md5_code_zp, run_time_zp
 
-
+###############################################
 
 
 # @profile
